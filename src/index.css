@@ -1,13 +1,122 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap');
+body{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  width: 100vw;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Logo */
+.logo-box{
+  margin-left: 2rem;
+  padding-top: 10px;
+  height: 70px;
+  width: 250px;
+}
+
+
+/* Navigation */
+.Navigation{
+ width: 100%;
+ height: 12vh;
+ display: flex;
+ justify-content: space-between;
+ font-family: Lato, sans-serif;
+ font-size: 20px;
+}
+.Nav-Links{
+  margin-right: 5rem;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.registerBtn{
+  width: 150px;
+  height: 50px;
+  margin-top: 10px;
+  background-color: #ec1c24;
+  border: none;
+  font-size: 18px;
+  color: #f2ebe6;
+  cursor: pointer;
+  border-radius: 30px;
+}
+.registerBtn:hover{
+  background: none;
+  border: 2px #ec1c24 solid;
+  color: #ec1c24;
+}
+.loginBtn{
+  width: 150px;
+  height: 50px;
+  margin-top: 10px;
+  border: 2px solid #046c34;
+  font-size: 18px;
+  color: #046c34;
+  cursor: pointer;
+  border-radius: 30px;
+  background: 0;
+}
+.loginBtn:hover{
+  background-color: #046c34;
+  color: #f7f7f7;
+}
+
+/* Landing Page */
+.landingPage{
+  width: 100vw;
+  height: 88vh;
+  display: flex;
+  overflow: hidden;
+}
+.landingPageImage{
+  width: 70%;
+  height: 100%;
+}
+.landingPageImage img{
+  width: 100%;
+  height: 100%;
+}
+.landingPageTxt{
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+.backgroundImg{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 0;
+}
+.backgroundImg img{
+  height: 100%;
+  width: 100%;
+}
+.textBox{
+  position: absolute;
+  height: 40%;
+  width: 90%;
+  top: 7vh;
+  left: 50%;
+}
+.textBox h3{
+  font-family: Karla, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: left;
+  color: #4c4c54;
+}
+.LandingPageBtn{
+  width: 90%;
+  height: 20%;
+  position: relative;
+  /* top: 100vh; */
+  bottom: 45vh;
+  left: 5%;
+  background-color: pink;
+  display: flex;
+  justify-content: space-around;
 }
