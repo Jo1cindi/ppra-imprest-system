@@ -7,10 +7,12 @@ const Navigation = () => {
 //Nagivation to Register page
  const navigate = useNavigate()
 
- const handleClick = ()=>{
+ const Register = ()=>{
   navigate("/Register")
  }
-
+ const Login = () =>{
+  navigate("/Login")
+ }
   return (
     <div className="Navigation">
      <div className='logo'>
@@ -32,8 +34,8 @@ const Navigation = () => {
       </ul>
      </div>
      <div className='NavBtns'>
-     <input type= "submit" value="Login" className='loginBtn'/>
-     <input type="submit" value="Register" onClick={handleClick} className="registerBtn"/>
+     <input type= "submit" value="Login" className='loginBtn' onClick={Login}/>
+     <input type="submit" value="Register" onClick={Register} className="registerBtn"/>
      </div>
      </div>
     </div>
