@@ -4,16 +4,15 @@ body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f7f7f7;
+  background-color: #D4D2E3;
   width: 100vw;
 }
 
 /* Logo */
 .logo-box{
   margin-left: 2rem;
-  padding-top: 10px;
-  height: 70px;
-  width: 250px;
+  height: 50px;
+  width: 150px;
 }
 
 
@@ -24,45 +23,67 @@ body{
  display: flex;
  justify-content: space-between;
  font-family: Lato, sans-serif;
- font-size: 20px;
 }
 .Nav-Links{
   margin-right: 5rem;
-  width: 25%;
+  width: 60%;
   height: 100%;
   display: flex;
   justify-content: space-between;
 }
-.registerBtn{
-  width: 150px;
-  height: 50px;
-  margin-top: 10px;
-  background-color: #ec1c24;
-  border: none;
+.aboutLinks{
+  width: 350px;
+}
+.aboutLinks ul{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.aboutLinks ul li{
+  list-style: none;
+}
+.navlink{
+  text-decoration: none;
+  color: #96916E;
+  font-weight: bold;
   font-size: 18px;
-  color: #f2ebe6;
+}
+.NavBtns{
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  font-size: 16px;
+}
+.registerBtn{
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+  background-color: #96916E;
+  border: none;
+  font-size: 16px;
+  color: #D4D2E3;
   cursor: pointer;
   border-radius: 30px;
 }
 .registerBtn:hover{
   background: none;
-  border: 2px #ec1c24 solid;
-  color: #ec1c24;
+  border: 2px #96916E solid;
+  color: #96916E;
 }
 .loginBtn{
-  width: 150px;
-  height: 50px;
+  width: 100px;
+  height: 30px;
   margin-top: 10px;
-  border: 2px solid #046c34;
-  font-size: 18px;
-  color: #046c34;
+  border: 2px solid #807D96;
+  font-size: 16px;
+  color:#807D96;
   cursor: pointer;
   border-radius: 30px;
   background: 0;
 }
 .loginBtn:hover{
-  background-color: #046c34;
-  color: #f7f7f7;
+  background-color: #807D96;
+  color: #D4D2E3;
 }
 
 /* Landing Page */
@@ -73,7 +94,7 @@ body{
   overflow: hidden;
 }
 .landingPageImage{
-  width: 70%;
+  width: 50%;
   height: 100%;
 }
 .landingPageImage img{
@@ -81,42 +102,57 @@ body{
   height: 100%;
 }
 .landingPageTxt{
-  position: relative;
   width: 50%;
   height: 100%;
 }
-.backgroundImg{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  padding-bottom: 0;
-}
-.backgroundImg img{
-  height: 100%;
-  width: 100%;
-}
 .textBox{
-  position: absolute;
-  height: 40%;
-  width: 90%;
-  top: 7vh;
-  left: 50%;
+  height: 10%;
+  width: 100%;
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-bottom: 5%;
 }
 .textBox h3{
-  font-family: Karla, sans-serif;
+  padding-top: 10px;
+  font-family: Lato, sans-serif;
   font-size: 40px;
-  font-weight: 600;
-  text-align: left;
-  color: #4c4c54;
+  font-weight: bolder;
+  color : #96916E;
 }
-.LandingPageBtn{
-  width: 90%;
+.smallerText{
   height: 20%;
-  position: relative;
-  /* top: 100vh; */
-  bottom: 45vh;
-  left: 5%;
-  background-color: pink;
-  display: flex;
-  justify-content: space-around;
+  width: 80%;
+  margin-left: 10%;
+  font-family: Karla, sans-serif;
+  font-size: 16px;
 }
+.getStartedBtn{
+  width: 50%;
+  height: 50px;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+.getStartedBtn input{
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  color: #D4D2E3;
+  background-color: #807D96;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  margin: auto;
+  outline: none;
+  border: none;
+}
+.getStartedBtn input:hover{
+  border: 2px solid #807D96;
+  color: #807D96;
+  background: none;
+}
+
+
+
+
+
+

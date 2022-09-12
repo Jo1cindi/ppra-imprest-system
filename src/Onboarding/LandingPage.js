@@ -1,21 +1,27 @@
 import React from 'react'
 import Illustration from "../Images/LandingPageIllustration.svg"
 import Navigation from "../Components/Navigation"
-
+import {AiFillCheckCircle} from "react-icons/ai"
 
 
 const LandingPage = () => {
- 
-  return (
+return (
     <div>
         <Navigation/>
         <div className="landingPage">
           <div className="landingPageTxt">
-          <div className='backgroundImg'>
           <div className='textBox'>
-            <h3>Welcome to the PPRA Imprest (Petty Cash) System</h3>
+           <h3>Easy Petty Cash Management!</h3> 
           </div>
+          <div className='smallerText'>
+           <p style={{color: "#96916E"}}><AiFillCheckCircle color='#807D96'/> Get Petty Cash Requests Easily </p>
+           <p style={{color: "#96916E"}}><AiFillCheckCircle color='#807D96'/> Get Petty Cash Approval Easily </p>
+           <p style={{color: "#96916E"}}><AiFillCheckCircle color='#807D96'/> Generate Petty Cash Reports Easily </p>
           </div>
+          <div className = "getStartedBtn">
+            <input type="submit" value="Get Started"/>
+          </div>
+
           </div>
           <div className="landingPageImage">
           <img src={Illustration} alt="Illustration"/>
