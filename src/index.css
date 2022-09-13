@@ -14,6 +14,12 @@ body{
   height: 50px;
   width: 150px;
 }
+.logoliteBox{
+  margin-left: 2rem;
+  height: 50px;
+  width: 150px;
+}
+
 
 
 /* Navigation */
@@ -152,6 +158,51 @@ body{
 }
 
 
+/* Registration */
+.registration{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.registrationIllustration{
+  width: 40%;
+  height: 100%;
+}
+.regIllu{
+  width: 80%;
+  height: 70%;
+  /* background-color: tomato; */
+  margin-top: 10%;
+  margin-left: 10%;
+}
+.regIllu img{
+  width: 150%;
+  height: 100%;
+}
+.registrationForm{
+  width: 60%;
+  height: 100%;
+  background-color: firebrick;
+}
+.registrationForm h3{
+  margin-left: 5rem;
+  font-size: 25px;
+  font-family: Lato, sans-serif;
+  font-weight: bold;
+  color: #96916E;
+}
+.registrationForm form{
+  width: 80%;
+  height: 80%;
+  background-color: salmon;
+  margin-left: 5rem;
+}
+.avatars{
+  width: 80%;
+  height: 20%;
+  background-color: seagreen;
+  margin-left: 5rem;
+}
 
 
 
