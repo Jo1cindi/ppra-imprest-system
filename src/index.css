@@ -4,7 +4,7 @@ body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #D4D2E3;
+  background-color: #f5fefd;
   width: 100vw;
 }
 
@@ -50,7 +50,7 @@ body{
 }
 .navlink{
   text-decoration: none;
-  color: #96916E;
+  color: #630000;
   font-weight: bold;
   font-size: 18px;
 }
@@ -64,32 +64,32 @@ body{
   width: 100px;
   height: 30px;
   margin-top: 10px;
-  background-color: #96916E;
+  background-color: #630000;
   border: none;
   font-size: 16px;
-  color: #D4D2E3;
+  color: #EEEBDD;
   cursor: pointer;
   border-radius: 30px;
 }
 .registerBtn:hover{
   background: none;
-  border: 2px #96916E solid;
-  color: #96916E;
+  border: 2px #630000 solid;
+  color: #630000;
 }
 .loginBtn{
   width: 100px;
   height: 30px;
   margin-top: 10px;
-  border: 2px solid #807D96;
+  border: 2px solid #000000;
   font-size: 16px;
-  color:#807D96;
+  color:#000000;
   cursor: pointer;
   border-radius: 30px;
   background: 0;
 }
 .loginBtn:hover{
-  background-color: #807D96;
-  color: #D4D2E3;
+  background-color: #000000;
+  color: #EEEBDD;
 }
 
 /* Landing Page */
@@ -123,7 +123,7 @@ body{
   font-family: Lato, sans-serif;
   font-size: 40px;
   font-weight: bolder;
-  color : #96916E;
+  color : #630000;
 }
 .smallerText{
   height: 20%;
@@ -142,8 +142,8 @@ body{
   width: 100%;
   height: 100%;
   border-radius: 30px;
-  color: #D4D2E3;
-  background-color: #807D96;
+  color: #EEEBDD;
+  background-color: #630000;
   font-family: Lato, sans-serif;
   font-size: 20px;
   cursor: pointer;
@@ -152,8 +152,8 @@ body{
   border: none;
 }
 .getStartedBtn input:hover{
-  border: 2px solid #807D96;
-  color: #807D96;
+  border: 2px solid #630000;
+  color: #630000;
   background: none;
 }
 
@@ -184,17 +184,18 @@ body{
   height: 125vh;
   margin-top: 1%;
   margin-left: 10rem;
-  /* background-color: #E3E1D3; */
+  /* background-color: #EEEBDD; */
   border-radius: 30px;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
 }
 .registrationForm h3{
-  font-size: 25px;
   font-family: Lato, sans-serif;
-  font-weight: bold;
+  font-size: 20px;
+  color: #000000;
   text-align: center;
-  color: #96916E;
 }
+
+
 .avatars{
   width: 80%;
   height: 15%;
@@ -202,28 +203,42 @@ body{
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
-  color: #807D96;
+  color: #630000;
   font-family: Karla, sans-serif;
 }
 .avatar{
   width: 100px;
   height: 60px;
-  border: 1px solid #ffffff;
+  background-color: #630000;
   border-radius: 15px;
   cursor: pointer;
 }
 .inactiveAvatar{
   width: 100px;
   height: 60px;
-  border: 1px solid #807D96;
+  border: 2px solid #000000;
   border-radius: 15px;
   cursor: pointer;
 }
 .individualAvatar{
-  color: #807D96;
+  color: #EEEBDD;
   font-size: 40px;
   margin-left: 30px;
   margin-top: 5px;
+}
+.inactiveIndividualAvatar{
+  color: #000000;
+  font-size: 40px;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+.positionDesc{
+  color: #630000;
+  font-weight: bold;
+}
+.inactivePositionDesc{
+  color: #000000;
+  font-weight: bold;
 }
 .registrationForm form{
   width: 350px;
@@ -236,14 +251,14 @@ body{
   width: 350px;
   height: 48px;
   border-radius: 10px;
-  color: #96916E;
-  border: 0.75px solid #96916E;
+  color: #000000;
+  border: 0.75px solid #000000;
   outline: none;
   background: none;
 }
 .registrationBtn{
   width: 350px;
-  background-color: #96916E;
+  background-color: #630000;
   height: 50px;
   border-radius: 30px;
   outline: none;
@@ -255,15 +270,30 @@ body{
   margin-top: 10px;
 }
 .registrationBtn:hover{
-  border: 2px solid #96916E;
+  border: 2px solid #630000;
   border-radius: 30px;
   color: #96916E;
   background: none;
   margin-top: 10px;
 }
 .registrationBtn:disabled{
-  background-color: #807D96;
+  background-color: #D8B6A4;
 }
+.haveAnAccount{
+  display: flex;
+}
+.haveAnAccount p{
+  font-family: Karla, sans-serif;
+}
+.accountLink{
+  margin-top: 15px;
+  margin-left: 2px;
+  font-family: Karla, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #630000;
+}
+
 
 
 

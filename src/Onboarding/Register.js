@@ -3,6 +3,7 @@ import Logo from "../Components/Logo";
 import illustration from "../Images/signup.svg";
 import { FaUserTie } from "react-icons/fa";
 import { TextField } from "@mui/material";
+import {Link} from 'react-router-dom'
 
 const Register = () => {
   //Avatars
@@ -129,7 +130,8 @@ const Register = () => {
       </div>
       {/* Registration Form */}
       <div className="registrationForm">
-        <h3>Please Register Below</h3>
+        <h3>Please Select Your Position Before Registration</h3>
+        
         <div className="avatars">
           {avatarArray.map((avatar) => (
             <div
@@ -141,8 +143,8 @@ const Register = () => {
                 setActiveAvatar(avatar.id);
               }}
             >
-              <div className="individualAvatar">{avatar.avatar}</div>
-              <p>{avatar.name}</p>
+              <div className={activeAvatar === avatar.id ? "individualAvatar" : "inactiveIndividualAvatar"}>{avatar.avatar}</div>
+              <p className={activeAvatar === avatar.id ? "positionDesc" : "inactivePositionDesc"}>{avatar.name}</p>
             </div>
           ))}
         </div>
@@ -279,6 +281,10 @@ const Register = () => {
             }
             onClick={register}
           />
+          <div className="haveAnAccount">
+          <p>Have an account?</p>
+          <Link path to = "/Login" className="accountLink">Login</Link>
+        </div>
         </form>
       </div>
     </div>
