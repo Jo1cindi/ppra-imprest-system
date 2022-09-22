@@ -260,7 +260,7 @@ body{
   width: 350px;
   background-color: #630000;
   height: 50px;
-  border-radius: 30px;
+  border-radius: 10px;
   outline: none;
   border: none;
   font-family: Karla, sans-serif;
@@ -339,7 +339,7 @@ body{
   width: 350px;
   background-color: #630000;
   height: 50px;
-  border-radius: 30px;
+  border-radius: 10px;
   outline: none;
   border: none;
   font-family: Karla, sans-serif;
@@ -374,6 +374,60 @@ body{
   font-weight: bold;
   text-decoration: none;
   color: #630000;
+}
+
+/* Reset Pin */
+.resetPin{
+  width: 100vw;
+  height: 100vh;
+}
+.resetPinCard{
+  width: 50%;
+  height: 65%;
+  border-radius: 30px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  margin: auto;
+}
+.resetPinCard h3{
+  font-family: Lato, sans-serif;
+  font-size: 24px;
+  color: #000000;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 20px;
+}
+.resetPasswordForm form{
+  width: 350px;
+  height: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.resetPasswordField .MuiOutlinedInput-root{
+  width: 350px;
+  height: 48px;
+  border-radius: 10px;
+  color: #000000;
+  border: 0.75px solid #000000;
+  outline: none;
+  background: none;
+}
+.resetButton{
+  width: 350px;
+  background-color: #630000;
+  height: 50px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-family: Karla, sans-serif;
+  color: #f5fefd;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.resetButton:disabled{
+  background-color: #D8B6A4;
+  color: #f5fefd;
 }
 
 
