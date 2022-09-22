@@ -264,20 +264,14 @@ body{
   outline: none;
   border: none;
   font-family: Karla, sans-serif;
-  color: #E3E1D3;
+  color: #f5fefd;
   cursor: pointer;
   font-size: 18px;
   margin-top: 10px;
 }
-.registrationBtn:hover{
-  border: 2px solid #630000;
-  border-radius: 30px;
-  color: #96916E;
-  background: none;
-  margin-top: 10px;
-}
 .registrationBtn:disabled{
   background-color: #D8B6A4;
+  color: #f5fefd;
 }
 .haveAnAccount{
   display: flex;
@@ -293,6 +287,96 @@ body{
   text-decoration: none;
   color: #630000;
 }
+
+/* Login */
+.Login{
+  width: 100vw;
+  height: 91.5vh;
+  display: flex;
+  overflow: hidden;
+}
+.loginForm{
+  width: 40%;
+  height: 85%;
+  border-radius: 30px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+.loginForm h3{
+  font-family: Lato, sans-serif;
+  font-size: 24px;
+  color: #000000;
+  text-align: center;
+  font-weight: bold;
+}
+.loginField .MuiOutlinedInput-root {
+  width: 350px;
+  height: 48px;
+  border-radius: 10px;
+  color: #000000;
+  border: 0.75px solid #000000;
+  outline: none;
+  background: none;
+}
+.loginForm form{
+  width: 350px;
+  margin: auto;
+  padding-top: 30px;
+}
+.loginIllustration{
+  width: 50%;
+  height: 85%;
+  margin-top: 2rem;
+}
+.loginIllustration img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.loginButton{
+  width: 350px;
+  background-color: #630000;
+  height: 50px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  font-family: Karla, sans-serif;
+  color: #f5fefd;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.loginButton:disabled{
+  background-color: #D8B6A4;
+  color: #f5fefd;
+}
+.forgotPassword{
+  font-family: Karla, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #630000;
+  font-size: 14px;
+}
+.registerHere{
+  display: flex;
+  font-size: 14px;
+}
+.registerHere p{
+  font-family: Karla, sans-serif;
+  font-weight: bold;
+}
+.regLink{
+  margin-top: 15px;
+  margin-left: 2px;
+  font-family: Karla, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #630000;
+}
+
+
 
 
 
