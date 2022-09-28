@@ -3,7 +3,7 @@ import Logo from "../Components/Logo";
 import illustration from "../Images/signup.svg";
 import { FaUserTie } from "react-icons/fa";
 import { TextField } from "@mui/material";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import axios from "axios";
 
 const Register = () => {
@@ -72,27 +72,61 @@ const Register = () => {
     });
   };
 
+
+  //Navigation to login page after registration
+  const navigate  = useNavigate();
+  let registrationError = ""
+
   const register = (e) => {
     e.preventDefault();
+
+    //Registering the employee
     if (activeAvatar === avatarArray[0].id) {
+      console.log("Employee");
       axios({
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/employee",
         data: employee,
         headers: {"Content-Type": "application/json"}
       }).then((response)=>{
+        navigate("/Login")
+        console.log(response)
+      }).catch((error)=>{
+        if(error){
+          registrationError = "Employee already exists"
+        }
+        console.log(error)
+      }) 
+
+      //Registering the accountant
+    } else if (activeAvatar === avatarArray[1].id) {
+      console.log("Accountant");
+      axios({
+        method: "post",
+        url: "https://ppra-api.herokuapp.com/api/accountant",
+        data: accountant,
+        headers: {"Content-Type": "application/json"}
+      }).then((response)=>{
+        navigate("/Login")
         console.log(response)
       }).catch((error)=>{
         console.log(error)
       })
-      console.log("Employee");
-      console.log(employee);
-    } else if (activeAvatar === avatarArray[1].id) {
-      console.log("Accountant");
-      console.log(accountant);
+
+      //Registering the finance manager
     } else if (activeAvatar === avatarArray[2].id) {
       console.log("Finance Manager");
-      console.log(financeManager);
+      axios({
+        method: "post",
+        url: "https://ppra-api.herokuapp.com/api/finance-manager",
+        data: financeManager,
+        headers: {"Content-Type": "application/json"}
+      }).then((response)=>{
+        navigate("/Login")
+        console.log(response)
+      }).catch((error)=>{
+        console.log(error)
+      })
     }
     console.log(confirmPassword.length);
   };
@@ -295,6 +329,9 @@ const Register = () => {
           <div className="haveAnAccount">
           <p>Have an account?</p>
           <Link path to = "/Login" className="accountLink">Login</Link>
+        </div>
+        <div className="regError">
+          <p>{registrationError}</p>
         </div>
         </form>
       </div>
