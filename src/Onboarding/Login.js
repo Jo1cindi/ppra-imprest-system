@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Logo from "../Components/Logo";
 import { FaUserTie } from "react-icons/fa";
 import { TextField } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginIllustration from "../Images/login.svg";
+import axios from "axios";
 
 const Login = () => {
   //Avatars
@@ -76,11 +77,28 @@ const Login = () => {
     emailError = "";
   }
 
+  //Navigation 
+  const navigate = useNavigate()
+
+  //login error
+  const [loginError, setLoginError] = useState("")
 
   //Login Function
   const login = (e) =>{
     e.preventDefault();
+    //employee
     if (activeAvatar === avatarArray[0].id) {
+      axios({
+        method: "post",
+        url: "https://ppra-api.herokuapp.com/api/employee-login",
+        data: employee,
+        headers: {"Content-Type": "application/json"}
+      }).then((response)=>{
+        navigate("/EmployeeDashboard")
+        console.log(response)
+      }).catch((error)=>{
+         console.log(error)
+      })
       console.log("Employee");
       console.log(employee);
     } else if (activeAvatar === avatarArray[1].id) {
@@ -170,6 +188,7 @@ const Login = () => {
               onChange={handleChange}
               margin="normal"
               variant="outlined"
+              type= "password"
               required
             />
             <Link path to="/ResetPin" className="forgotPassword">Forgot Password?</Link>

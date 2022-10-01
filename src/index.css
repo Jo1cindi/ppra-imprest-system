@@ -4,7 +4,7 @@ body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f5fefd;
+  background-color: #F5F7D9;
   width: 100vw;
 }
 
@@ -181,7 +181,7 @@ body{
 }
 .registrationForm{
   width: 45%;
-  height: 125vh;
+  height: 130vh;
   margin-top: 1%;
   margin-left: 10rem;
   /* background-color: #EEEBDD; */
@@ -247,6 +247,7 @@ body{
   display: flex;
   flex-direction: column;
 }
+
 .registerfield .MuiOutlinedInput-root {
   width: 350px;
   height: 48px;
@@ -287,6 +288,13 @@ body{
   text-decoration: none;
   color: #630000;
 }
+.regError{
+  color: red;
+  font-family: Karla, sans-serif;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
 
 /* Login */
 .Login{

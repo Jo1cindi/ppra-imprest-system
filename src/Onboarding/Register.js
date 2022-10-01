@@ -75,7 +75,7 @@ const Register = () => {
 
   //Navigation to login page after registration
   const navigate  = useNavigate();
-  let registrationError = ""
+  const [registrationError, setRegistrationError] = useState("")
 
   const register = (e) => {
     e.preventDefault();
@@ -85,15 +85,18 @@ const Register = () => {
       console.log("Employee");
       axios({
         method: "post",
-        url: "https://ppra-api.herokuapp.com/api/employee",
+        url: "https://ppra-api.herokuapp.com/api/employee-signup",
         data: employee,
         headers: {"Content-Type": "application/json"}
       }).then((response)=>{
-        navigate("/Login")
-        console.log(response)
+        if(response.status === 200){
+          navigate("/Login")
+        }
+        // console.log(response.status)
+        console.log(response.status)
       }).catch((error)=>{
-        if(error){
-          registrationError = "Employee already exists"
+        if(error.response.status === 409){
+         setRegistrationError("This user already exists")
         }
         console.log(error)
       }) 
@@ -103,13 +106,16 @@ const Register = () => {
       console.log("Accountant");
       axios({
         method: "post",
-        url: "https://ppra-api.herokuapp.com/api/accountant",
+        url: "https://ppra-api.herokuapp.com/api/accountant-signup",
         data: accountant,
         headers: {"Content-Type": "application/json"}
       }).then((response)=>{
         navigate("/Login")
         console.log(response)
       }).catch((error)=>{
+        if(error.response.status === 409){
+          setRegistrationError("This user already exists")
+         }
         console.log(error)
       })
 
@@ -118,13 +124,16 @@ const Register = () => {
       console.log("Finance Manager");
       axios({
         method: "post",
-        url: "https://ppra-api.herokuapp.com/api/finance-manager",
+        url: "https://ppra-api.herokuapp.com/api/financemanager-signup",
         data: financeManager,
         headers: {"Content-Type": "application/json"}
       }).then((response)=>{
         navigate("/Login")
         console.log(response)
       }).catch((error)=>{
+        if(error.response.status === 409){
+          setRegistrationError("This user already exists")
+         }
         console.log(error)
       })
     }
@@ -326,12 +335,10 @@ const Register = () => {
             }
             onClick={register}
           />
+          <label className="regError">{registrationError}</label>
           <div className="haveAnAccount">
           <p>Have an account?</p>
           <Link path to = "/Login" className="accountLink">Login</Link>
-        </div>
-        <div className="regError">
-          <p>{registrationError}</p>
         </div>
         </form>
       </div>
