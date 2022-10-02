@@ -367,6 +367,12 @@ body{
   color: #630000;
   font-size: 14px;
 }
+.loginError{
+  color: red;
+  font-family: Karla, sans-serif;
+  padding-top: 10px;
+  font-size: 14px;
+}
 .registerHere{
   display: flex;
   font-size: 14px;

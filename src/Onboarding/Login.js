@@ -83,6 +83,9 @@ const Login = () => {
   //login error
   const [loginError, setLoginError] = useState("")
 
+  //Set user
+  const [user, setUser] = useState("")
+
   //Login Function
   const login = (e) =>{
     e.preventDefault();
@@ -97,16 +100,51 @@ const Login = () => {
         navigate("/EmployeeDashboard")
         console.log(response)
       }).catch((error)=>{
+        if(error.response.status === 401){
+          setLoginError("Incorrect email or password")
+        }
          console.log(error)
       })
       console.log("Employee");
-      console.log(employee);
+      setUser("Employee")
+      localStorage.setItem("Employee", user)
     } else if (activeAvatar === avatarArray[1].id) {
       console.log("Accountant");
-      console.log(accountant);
+      setUser("Accountant")
+      localStorage.setItem("Accountant", user)
+      axios({
+        method: "post",
+        url: "https://ppra-api.herokuapp.com/api/accountant-login",
+        data: accountant,
+        headers: {"Content-Type": "application/json"}
+      }).then((response)=>{
+        navigate("/AccountantDashboard")
+        console.log(response)
+      }).catch((error)=>{
+        if(error.response.status === 401){
+          setLoginError("Incorrect email or password")
+        }
+         console.log(error)
+      })
     } else if (activeAvatar === avatarArray[2].id) {
       console.log("Finance Manager");
-      console.log(financeManager);
+      setUser("Finance Manager")
+      localStorage.setItem("Finance Manager", user)
+      //Post request
+      axios({
+        method: "post",
+        url: "https://ppra-api.herokuapp.com/api/financemanager-login",
+        data: financeManager,
+        headers: {"Content-Type": "application/json"}
+      }).then((response)=>{
+        navigate("/AccountantDashboard")
+        console.log(response)
+      }).catch((error)=>{
+        if(error.response.status === 401){
+          setLoginError("Incorrect email or password")
+        }
+         console.log(error)
+      })
     }
   }
   return (
@@ -206,6 +244,7 @@ const Login = () => {
               }
               onClick={login}
             />
+            <label className="loginError">{loginError}</label>
             <div className="registerHere">
               <p>Not Registered Yet?</p>
               <Link path to = "/Register" className="regLink">Register Here</Link>
