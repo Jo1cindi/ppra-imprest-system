@@ -84,7 +84,18 @@ const Login = () => {
   const [loginError, setLoginError] = useState("")
 
   //Set user
-  const [user, setUser] = useState("")
+  let user  = "";
+  if(activeAvatar === avatarArray[0].id){
+    user = "employee"
+    localStorage.setItem('user', user)
+  }else if(activeAvatar === avatarArray[1].id){
+    user = "accountant"
+    localStorage.setItem('user', user)
+  }else{
+    user = "finance manager"
+    localStorage.setItem('user', user)
+  }
+  
 
   //Login Function
   const login = (e) =>{
@@ -106,12 +117,11 @@ const Login = () => {
          console.log(error)
       })
       console.log("Employee");
-      setUser("Employee")
-      localStorage.setItem("Employee", user)
     } else if (activeAvatar === avatarArray[1].id) {
       console.log("Accountant");
-      setUser("Accountant")
-      localStorage.setItem("Accountant", user)
+      
+
+      //Post request
       axios({
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/accountant-login",
@@ -128,8 +138,6 @@ const Login = () => {
       })
     } else if (activeAvatar === avatarArray[2].id) {
       console.log("Finance Manager");
-      setUser("Finance Manager")
-      localStorage.setItem("Finance Manager", user)
       //Post request
       axios({
         method: "post",
@@ -137,7 +145,7 @@ const Login = () => {
         data: financeManager,
         headers: {"Content-Type": "application/json"}
       }).then((response)=>{
-        navigate("/AccountantDashboard")
+        navigate("/FinanceManagerDashboard")
         console.log(response)
       }).catch((error)=>{
         if(error.response.status === 401){
@@ -146,6 +154,7 @@ const Login = () => {
          console.log(error)
       })
     }
+    localStorage.setItem('user', JSON.stringify(user))
   }
   return (
     <>
