@@ -1,8 +1,12 @@
 import React from 'react'
+import "./DashboardStyles.css"
+import EmployeeSidebar from '../Components/EmployeeSidebar'
 
 const EmployeeDashboard = () => {
   return (
-    <div>EmployeeDashboard</div>
+    <div className="employeeDashboard">
+     <EmployeeSidebar/>
+    </div>
   )
 }
 
