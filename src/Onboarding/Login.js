@@ -110,6 +110,9 @@ const Login = () => {
       }).then((response)=>{
         navigate("/EmployeeDashboard")
         console.log(response)
+        localStorage.setItem('firstName', response.data.firstName)
+        localStorage.setItem('lastName', response.data.lastName)
+        console.log(response.data.lastName)
       }).catch((error)=>{
         if(error.response.status === 401){
           setLoginError("Incorrect email or password")
@@ -117,6 +120,7 @@ const Login = () => {
          console.log(error)
       })
       console.log("Employee");
+
     } else if (activeAvatar === avatarArray[1].id) {
       console.log("Accountant");
       
