@@ -12,6 +12,9 @@ import {
   FormControl,
   MenuItem,
 } from "@mui/material";
+import axios from "axios";
+
+
 
 const EmployeeDashboard = () => {
   //Opening and closing the form
@@ -63,10 +66,33 @@ const EmployeeDashboard = () => {
     "Internal Audit",
     "Human Resources",
   ];
+  
+  //Sending request error
+  const [requestError, setRequestError]= useState("");
+
+  //Sent confirmation
+  const [confirmation, setConfirmation] = useState("")
 
   //Send request Function
   const sendRequest = (e) => {
     e.preventDefault();
+    axios({
+      method: "post",
+      url: "https://ppra-api.herokuapp.com/api/send-request",
+      data: formData,
+      headers: { "Content-Type": "application/json" }
+    }).then((response)=>{
+      if(response.status === 200){
+        setConfirmation("Request sent succesfully!!")
+      }
+      console.log(response.status)
+      console.log(response)
+    }).catch((error)=>{
+      if(error.response.status === 401){
+        setRequestError("Please use the correct email address")
+      }
+      console.log(error)
+    })
     console.log(formData);
   };
 
@@ -191,6 +217,8 @@ const EmployeeDashboard = () => {
                   }
                 />
               </div>
+              <p className="confirmation">{confirmation}</p>
+              <p className="reqError">{requestError}</p>
             </form>
           </div>
         </div>

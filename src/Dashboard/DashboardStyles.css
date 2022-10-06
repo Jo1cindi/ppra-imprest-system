@@ -259,6 +259,16 @@ body{
 .requestBtn:disabled{
   background-color: #D8B6A4;
 }
+.reqError{
+  margin-left: 2rem;
+  font-family: Karla, sans-serif;
+  color: red;
+}
+.confirmation{
+  margin-left: 2rem;
+  font-family: Karla, sans-serif;
+  color: green;
+}
 
 
 
