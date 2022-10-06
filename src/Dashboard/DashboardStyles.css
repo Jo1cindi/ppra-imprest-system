@@ -23,13 +23,17 @@ body{
   border-top: 0.5px solid #F5F7D9;
   border-bottom: 0.5px solid #F5F7D9;  
   color: #EEEBDD;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   font-family: Lato, sans-serif;
 }
 .name{
   font-family: Karla, sans-serif;
   color: #D8B6A4;
+  margin-left: 1rem;
+}
+.greeting{
+  margin-left: 1rem;
 }
 
 .menu{
@@ -83,11 +87,183 @@ body{
 /* Dashboard */
 .employeeDashboard{
   display: flex;
+  width: 100vw;
+  height: 100vh;
 }
-.employeeDashobardContent{
+
+.employeeDashboardContent{
   position: absolute;
   left: 15%;
+  width: 85%;
+  height: 100%;
 }
+.animation{
+  width: 40%;
+  height: 50%;
+  margin-left: 30%;
+  margin-top: 3%;
+  margin-bottom: 2rem;
+}
+.animationLottie{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.requestCard{
+  width: 40%;
+  height: 32%;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  background-color: #EEEBDD;
+}
+.requestCardTitle{
+  padding-top: 20px;
+  margin-left: 2rem;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+.requestCard p{
+  margin-left: 2rem;
+  font-family: Karla, sans-serif;
+}
+.requestCard input{
+  width: 328px;
+  height: 50px;
+  margin-left: 2rem;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: #630000;
+  cursor: pointer;
+  color: #F5F7D9;
+  font-size: 16px;
+}
+.requestForm{
+  position: absolute;
+  width: 85vw;
+  margin-left: 15vw;
+  height: 100vh;
+  background-color: #F5F7D9;
+  z-index: 1;
+  overflow: hidden;
+}
+.closeFormBtn{
+  position: absolute;
+  font-size: 35px;
+  color: #630000;
+  cursor: pointer;
+  left: 90%;
+}
+.requestFormFields{
+  width: 100%;
+  height: 97%;
+}
+.requestFormFields h3{
+  font-family: Lato, sans-serif;
+  margin-left: 12%;
+}
+.requestFormFields form{
+  width: 80%;
+  height: 90%;
+  margin-left: 10%;
+}
+.nameInput{
+  width: 70%;
+  height: 13%;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.requestnameField .MuiOutlinedInput-root{
+  width: 280px;
+  height: 48px;
+  border-radius: 10px;
+  color: #000000;
+  border: 0.75px solid #000000;
+  outline: none;
+  background: none;
+}
+.requestFieldInputs{
+  width: 70%;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.requestField .MuiOutlinedInput-root{
+  width: 280px;
+  height: 48px;
+  border-radius: 10px;
+  color: #000000;
+  border: 0.75px solid #000000;
+  outline: none;
+  background: none;
+}
+.selectTag .MuiOutlinedInput-root{
+  margin-top: 18px;
+  width: 280px;
+  height: 48px;
+  border-radius: 10px;
+  color: #000000;
+  border: 0.75px solid #000000;
+  outline: none;
+  background: none;
+}
+.selectTag .MuiInputLabel-root{
+  margin-top: 18px;
+}
+.dateandAmount{
+  width: 70%;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.datePicker{
+  margin-top: 15px;
+  width: 280px;
+  height: 48px;
+  border-radius: 10px;
+  color: #000000;
+  border: 0.75px solid #000000;
+  outline: #000000;
+  background: none;
+}
+.textAreaandBtn{
+  width: 70%;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.textArea .MuiOutlinedInput-root{
+  margin-top: 10px;
+  width: 500px;
+  border-radius: 10px;
+  color: #000000;
+  border: 0.75px solid #000000;
+  outline: none;
+  background: none;
+}
+.requestBtn{
+  width: 280px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: #630000;
+  cursor: pointer;
+  color: #F5F7D9;
+  font-size: 16px;
+  margin-top: 12px;
+}
+.requestBtn:disabled{
+  background-color: #D8B6A4;
+}
+
+
+
+
+
 
 
 /* View Requests */
