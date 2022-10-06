@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import Logo from "../Components/Logo";
 import illustration from "../Images/signup.svg";
 import { FaUserTie } from "react-icons/fa";
-import { TextField } from "@mui/material";
-import {Link, useNavigate} from 'react-router-dom';
+import {
+  TextField,
+  Select,
+  InputLabel,
+  FormControl,
+  MenuItem,
+} from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
@@ -33,6 +39,7 @@ const Register = () => {
     firstName: "",
     lastName: "",
     email: "",
+    department: "",
     phoneNumber: "",
     password: "",
   });
@@ -72,10 +79,53 @@ const Register = () => {
     });
   };
 
+  const departmentsArray = [
+    "Technical Services",
+    "Finance",
+    "Corporate",
+    "ICT",
+    "Internal Audit",
+    "Human Resources",
+  ];
+
+  //displaying department select tag
+  const selectDepartment = () =>{
+    if(activeAvatar === avatarArray[0].id){
+      return(
+        <>
+          <FormControl className="registerfield">
+                  <InputLabel>Select your department</InputLabel>
+                  <Select
+                    className="requestField"
+                    label="department"
+                    name="department"
+                    value={employee.department}
+                    onChange={handleChange}
+                    margin="normal"
+                    variant="outlined"
+                  >
+                    <MenuItem value={departmentsArray[0]}>
+                      Technical Services
+                    </MenuItem>
+                    <MenuItem value={departmentsArray[1]}>Finance</MenuItem>
+                    <MenuItem value={departmentsArray[2]}>Corporate</MenuItem>
+                    <MenuItem value={departmentsArray[3]}>ICT</MenuItem>
+                    <MenuItem value={departmentsArray[4]}>
+                      Internal Audit
+                    </MenuItem>
+                    <MenuItem value={departmentsArray[5]}>
+                      Human Resources
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+        </>
+      )
+    }
+  }
 
   //Navigation to login page after registration
-  const navigate  = useNavigate();
-  const [registrationError, setRegistrationError] = useState("")
+  const navigate = useNavigate();
+  const [registrationError, setRegistrationError] = useState("");
 
   const register = (e) => {
     e.preventDefault();
@@ -87,19 +137,21 @@ const Register = () => {
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/employee-signup",
         data: employee,
-        headers: {"Content-Type": "application/json"}
-      }).then((response)=>{
-        if(response.status === 200){
-          navigate("/Login")
-        }
-        // console.log(response.status)
-        console.log(response.status)
-      }).catch((error)=>{
-        if(error.response.status === 409){
-         setRegistrationError("This user already exists")
-        }
-        console.log(error)
-      }) 
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            navigate("/Login");
+          }
+          // console.log(response.status)
+          console.log(response.status);
+        })
+        .catch((error) => {
+          if (error.response.status === 409) {
+            setRegistrationError("This user already exists");
+          }
+          console.log(error);
+        });
 
       //Registering the accountant
     } else if (activeAvatar === avatarArray[1].id) {
@@ -108,16 +160,18 @@ const Register = () => {
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/accountant-signup",
         data: accountant,
-        headers: {"Content-Type": "application/json"}
-      }).then((response)=>{
-        navigate("/Login")
-        console.log(response)
-      }).catch((error)=>{
-        if(error.response.status === 409){
-          setRegistrationError("This user already exists")
-         }
-        console.log(error)
+        headers: { "Content-Type": "application/json" },
       })
+        .then((response) => {
+          navigate("/Login");
+          console.log(response);
+        })
+        .catch((error) => {
+          if (error.response.status === 409) {
+            setRegistrationError("This user already exists");
+          }
+          console.log(error);
+        });
 
       //Registering the finance manager
     } else if (activeAvatar === avatarArray[2].id) {
@@ -126,16 +180,18 @@ const Register = () => {
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/financemanager-signup",
         data: financeManager,
-        headers: {"Content-Type": "application/json"}
-      }).then((response)=>{
-        navigate("/Login")
-        console.log(response)
-      }).catch((error)=>{
-        if(error.response.status === 409){
-          setRegistrationError("This user already exists")
-         }
-        console.log(error)
+        headers: { "Content-Type": "application/json" },
       })
+        .then((response) => {
+          navigate("/Login");
+          console.log(response);
+        })
+        .catch((error) => {
+          if (error.response.status === 409) {
+            setRegistrationError("This user already exists");
+          }
+          console.log(error);
+        });
     }
     console.log(confirmPassword.length);
   };
@@ -185,7 +241,7 @@ const Register = () => {
       {/* Registration Form */}
       <div className="registrationForm">
         <h3>Please Select Your Position Before Registration</h3>
-        
+
         <div className="avatars">
           {avatarArray.map((avatar) => (
             <div
@@ -197,8 +253,24 @@ const Register = () => {
                 setActiveAvatar(avatar.id);
               }}
             >
-              <div className={activeAvatar === avatar.id ? "individualAvatar" : "inactiveIndividualAvatar"}>{avatar.avatar}</div>
-              <p className={activeAvatar === avatar.id ? "positionDesc" : "inactivePositionDesc"}>{avatar.name}</p>
+              <div
+                className={
+                  activeAvatar === avatar.id
+                    ? "individualAvatar"
+                    : "inactiveIndividualAvatar"
+                }
+              >
+                {avatar.avatar}
+              </div>
+              <p
+                className={
+                  activeAvatar === avatar.id
+                    ? "positionDesc"
+                    : "inactivePositionDesc"
+                }
+              >
+                {avatar.name}
+              </p>
             </div>
           ))}
         </div>
@@ -257,6 +329,7 @@ const Register = () => {
             margin="normal"
             required
           />
+          {selectDepartment()}
           <TextField
             className="registerfield"
             label="Phone Number"
@@ -284,7 +357,7 @@ const Register = () => {
                 : financeManager.password
             }
             onChange={handleChange}
-            type = "password"
+            type="password"
             margin="normal"
             required
           />
@@ -302,7 +375,7 @@ const Register = () => {
                 ? { style: { color: "red" } }
                 : { style: { color: "green" } }
             }
-            type = "password"
+            type="password"
             margin="normal"
             required
           />
@@ -337,9 +410,11 @@ const Register = () => {
           />
           <label className="regError">{registrationError}</label>
           <div className="haveAnAccount">
-          <p>Have an account?</p>
-          <Link path to = "/Login" className="accountLink">Login</Link>
-        </div>
+            <p>Have an account?</p>
+            <Link path to="/Login" className="accountLink">
+              Login
+            </Link>
+          </div>
         </form>
       </div>
     </div>
