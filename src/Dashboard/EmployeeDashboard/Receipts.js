@@ -24,7 +24,7 @@ const Receipts = () => {
             />
           </div>
           <div className='emptyRecPageCard'>
-           <h4>You do not have any notifications yet.</h4>
+           <h4>You do not received any receipts yet.</h4>
           </div>
         </div>
       )
