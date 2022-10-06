@@ -276,7 +276,7 @@ body{
   width: 85%;
   height: 100%;
 }
-.requestsPage{
+.employeeRequestsPage{
   width: 100%;
   height: 100%;
 }
@@ -308,6 +308,8 @@ body{
 .receiptsContent{
   position: absolute;
   left: 15%;
+  width: 85%;
+  height: 100%;
 }
 
 /* employeeNotifications */
@@ -317,4 +319,23 @@ body{
 .employeeNotifContent{
   position: absolute;
   left: 15%;
+  width: 85%;
+  height: 100%;
+}
+.employeeNotificationsPage{
+  width: 100%;
+  height: 100%;
+}
+.emptyNotPage{
+  width: 100%;
+  height: 100%;
+}
+.emptyNotPageCard{
+  width: 70%;
+  margin: auto;
+  font-family: Lato, sans-serif;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #630000;
+  text-align: center;
 }

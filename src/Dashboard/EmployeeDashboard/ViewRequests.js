@@ -8,7 +8,7 @@ const ViewRequests = () => {
   const showRequests = () =>{
     if(request){
       return(
-        <div className='requestsPage'></div>
+        <div className='employeeRequestsPage'></div>
       )
     }else{
       return(
