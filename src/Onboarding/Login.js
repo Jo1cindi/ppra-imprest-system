@@ -112,6 +112,8 @@ const Login = () => {
         console.log(response)
         localStorage.setItem('firstName', response.data.firstName)
         localStorage.setItem('lastName', response.data.lastName)
+        localStorage.setItem('email', response.data.email)
+        console.log(response.data.email)
         console.log(response.data.lastName)
       }).catch((error)=>{
         if(error.response.status === 401){

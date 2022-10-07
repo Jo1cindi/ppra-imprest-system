@@ -219,7 +219,7 @@ body{
   display: flex;
   justify-content: space-between;
 }
-.datePicker{
+.dateField{
   margin-top: 15px;
   width: 280px;
   height: 48px;
@@ -289,6 +289,33 @@ body{
 .employeeRequestsPage{
   width: 100%;
   height: 100%;
+}
+.request{
+  width: 100%;
+  height: 20vh;
+  border-bottom: 1px #000000 solid;
+}
+.requestIcon{
+  font-size: 24px;
+  margin-top: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #D8B6A4;
+}
+.requestTitle{
+  display:flex;
+  font-family: Karla, sans-serif;
+  height: 30px;
+}
+.requestTitle h3{
+  color: #000000;
+}
+.requestDetails{
+  margin-left: 40px;
+  font-family: Karla, sans-serif;
+}
+.request-time{
+  color: rgba(0, 0, 0, 0.7);
 }
 .emptyRequestPage{
   width: 100%;

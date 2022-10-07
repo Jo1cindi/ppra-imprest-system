@@ -4,13 +4,15 @@ import EmployeeSidebar from "../../Components/EmployeeSidebar";
 import Lottie from "react-lottie-player";
 import Animation from "../../Images/Animation.json";
 import { IoCloseSharp } from "react-icons/io5";
-import DateTimePicker from "react-datetime-picker";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   TextField,
   Select,
   InputLabel,
   FormControl,
   MenuItem,
+  
 } from "@mui/material";
 import axios from "axios";
 
@@ -27,7 +29,25 @@ const EmployeeDashboard = () => {
   };
 
   //Setting time value
-  const [time, onChange] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  let date = new Date();
+  let hr = date.getHours()
+  let min = date.getMinutes()
+  if(min < 10){
+    min = "0"+ min.toString()
+  }
+  let amPm = ""
+  if(hr > 12){
+    hr -= 12
+    amPm = "PM"
+  }else if( hr - 12 === 12){
+    amPm = "AM"
+  }else{
+    amPm = "AM"
+  }
+
+  const time = hr + ":" + min + " " + amPm
+  
 
   //Form data
   const [formData, setFormData] = useState({
@@ -35,7 +55,8 @@ const EmployeeDashboard = () => {
     lastName: "",
     email: "",
     department: "",
-    date: time,
+    date: startDate.toDateString(),
+    time: time,
     amount: "",
     reasonForRequest: "",
   });
@@ -94,6 +115,8 @@ const EmployeeDashboard = () => {
       console.log(error)
     })
     console.log(formData);
+    console.log(time)
+    console.log(hr)
   };
 
   return (
@@ -171,12 +194,7 @@ const EmployeeDashboard = () => {
               </div>
               <div className="dateandAmount">
                 <div className="dateInput">
-                  <DateTimePicker
-                    onChange={onChange}
-                    value={time}
-                    className="datePicker"
-                    autoFocus={false}
-                  />
+                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}format = "y-MM-dd h:mm" className="dateField"/>
                 </div>
                 <TextField
                   className="requestField"
