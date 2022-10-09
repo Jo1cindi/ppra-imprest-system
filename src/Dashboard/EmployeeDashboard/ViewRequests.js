@@ -7,6 +7,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 
 const ViewRequests = () => {
   const [requests, setRequests] = useState([{}]);
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     fetchRequests();
   }, []);
@@ -21,6 +22,7 @@ const ViewRequests = () => {
       .then((response) => {
         if (response.status === 200) {
           setRequests(response.data.data);
+          setLoading(true)
         }
         console.log(response.data.data);
         console.log(response);
@@ -31,7 +33,7 @@ const ViewRequests = () => {
   };
 
   const showRequests = () => {
-    if (requests.length > 0) {
+    if (loading) {
       return (
         <div className="employeeRequestsPage">
           <div className="space"></div>

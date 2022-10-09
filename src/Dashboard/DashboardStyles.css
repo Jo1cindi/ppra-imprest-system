@@ -16,9 +16,27 @@ body{
   position: fixed; 
   background-color: #000000;
 }
+.fmSidebar{
+  position: fixed;
+  width: 18%;
+  height: 100%;
+  position: fixed; 
+  background-color: #000000;
+}
 .userName{
   width: 100%;
   height: 14%;
+  margin-top: 10px;
+  border-top: 0.5px solid #F5F7D9;
+  border-bottom: 0.5px solid #F5F7D9;  
+  color: #EEEBDD;
+  text-align: left;
+  font-size: 16px;
+  font-family: Lato, sans-serif;
+}
+.fmName{
+  width: 100%;
+  height: 20%;
   margin-top: 10px;
   border-top: 0.5px solid #F5F7D9;
   border-bottom: 0.5px solid #F5F7D9;  
@@ -44,9 +62,22 @@ body{
   flex-direction: column;
   justify-content: space-evenly;
 }
+.fmenu{
+  width: 95%;
+  height: 40%;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 .menuItem{
   width: 95%;
   height: 10%;
+  list-style: none;
+}
+.fmmenuItem{
+  width: 100%;
+  height: 15%;
   list-style: none;
 }
 .activeNavlink{
@@ -400,4 +431,23 @@ body{
   font-weight: bolder;
   color: #630000;
   text-align: center;
+}
+
+
+/* Finance Manager Dashboard */
+.fmDashboardContent{
+  position: absolute;
+  width: 82vw;
+  height: 100vh;
+  left: 18%;
+}
+
+
+
+/* History */
+.requestHistoryContent{
+  position: absolute;
+  width: 82vw;
+  height: 100vh;
+  left: 18%;
 }

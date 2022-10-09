@@ -6,10 +6,11 @@ import Register from './Onboarding/Register';
 import ResetPin from './Onboarding/ResetPin';
 import EmployeeDashboard from './Dashboard/EmployeeDashboard/Employee-Dashboard';
 import AccountantDashboard from './Dashboard/Accountant-Dashboard';
-import FinanceManagerDashboard from './Dashboard/FinanceManager-Dashboard';
+import FinanceManagerDashboard from './Dashboard/Finance Manager Dashboard/FinanceManager-Dashboard';
 import Receipts from './Dashboard/EmployeeDashboard/Receipts';
 import ViewRequests from './Dashboard/EmployeeDashboard/ViewRequests';
 import EmployeeNotifications from './Dashboard/EmployeeDashboard/EmployeeNotifications';
+import History from './Dashboard/Finance Manager Dashboard/History';
 
 const PPRAImprest = () => {
 
@@ -28,6 +29,7 @@ const PPRAImprest = () => {
       <Route path="/ViewRequests" exact element={<ViewRequests />} />
       <Route path="/Receipts" exact element={ <Receipts/>} />
       <Route path="/EmployeeNotifications" exact element={ <EmployeeNotifications/>} />
+      <Route path="/History" exact element={ <History/>} />
       </Routes>
      </Router>
     </div>

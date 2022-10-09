@@ -152,6 +152,9 @@ const Login = () => {
         headers: {"Content-Type": "application/json"}
       }).then((response)=>{
         navigate("/FinanceManagerDashboard")
+        localStorage.setItem('firstName', response.data.firstName)
+        localStorage.setItem('lastName', response.data.lastName)
+        localStorage.setItem('email', response.data.email)
         console.log(response)
       }).catch((error)=>{
         if(error.response.status === 401){
