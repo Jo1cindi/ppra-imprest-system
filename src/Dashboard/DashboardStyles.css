@@ -7,6 +7,10 @@ body{
   background-color: #F5F7D9;
   width: 100vw;
 }
+*{
+  margin: 0;
+  padding: 0;
+}
 
 /* Sidebar */
 .employeeSidebar{
@@ -52,6 +56,7 @@ body{
 }
 .greeting{
   margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 .menu{
@@ -79,6 +84,20 @@ body{
   width: 100%;
   height: 15%;
   list-style: none;
+}
+.numberOfRequests{
+  color: #F5F7D9;
+  height: 25px;
+  width: 25px;
+  background-color: #630000;
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+.numberOfRequests p{
+  padding-top: 3px;
+  padding-left: 7.5px;
+  text-align: center;
 }
 .activeNavlink{
   width: 100%;
@@ -154,10 +173,12 @@ body{
   font-family: Lato, sans-serif;
   font-size: 20px;
   font-weight: bold;
+  margin-top: 10px;
 }
 .requestCard p{
   margin-left: 2rem;
   font-family: Karla, sans-serif;
+  margin-top: 10px;
 }
 .requestCard input{
   width: 328px;
@@ -170,6 +191,7 @@ body{
   cursor: pointer;
   color: #F5F7D9;
   font-size: 16px;
+  margin-top: 10px;
 }
 .requestForm{
   position: absolute;
@@ -194,6 +216,7 @@ body{
 .requestFormFields h3{
   font-family: Lato, sans-serif;
   margin-left: 12%;
+  margin-top: 2rem;
 }
 .requestFormFields form{
   width: 80%;
@@ -340,10 +363,12 @@ body{
 }
 .requestTitle h3{
   color: #000000;
+  margin-top: 1rem;
 }
 .requestDetails{
-  margin-left: 40px;
+  margin-left: 42px;
   font-family: Karla, sans-serif;
+  margin-top: 10px;
 }
 .request-time{
   color: rgba(0, 0, 0, 0.7);
@@ -441,13 +466,79 @@ body{
   height: 100vh;
   left: 18%;
 }
-
-
-
-/* History */
-.requestHistoryContent{
-  position: absolute;
+.receivedRequests{
   width: 82vw;
   height: 100vh;
-  left: 18%;
 }
+.receivedRequestsTitle{
+  width: 100%;
+  height: 8%;
+  border-bottom: 1px solid #000000;
+  font-family: Lato, sans-serif;
+  font-size: 24px;
+}
+.receivedRequestsTitle h4{
+  padding-top: 10px;
+  padding-left: 5%;
+}
+.receivedRequestItems{
+  width: 80%;
+  margin-left: 5%;
+  margin-top: 15px;
+}
+.receivedRequest{
+  position: relative;
+  width: 60%;
+  height: 75px;
+  margin-top: 8px;
+  border-radius: 10px;
+  background-color: #EEEBDD;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.requestNumber{
+  padding-top: 10px;
+  padding-left: 1rem;
+  font-family: Karla, sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+}
+.receivedRequest input{
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #630000;
+  color: #F5F7D9;
+}
+.receivedRequestDetails{
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  right: 0vw;
+}
+.requestDetailsCard{
+  position: absolute;
+  width: 40%;
+  height: 70%;
+  background-color: #F5F7D9;
+  border-radius: 10px;
+  left: 30%;
+  top: 15%;
+  z-index: 1;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+}
+.blurrybg{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0, 0.5);
+  filter: blur();
+  -webkit-filter: blur();
+}
+
+

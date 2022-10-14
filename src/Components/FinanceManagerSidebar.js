@@ -11,6 +11,14 @@ const FinanceManagerSidebar = () => {
   const userFirstName = localStorage.getItem("firstName")
   const userLastName = localStorage.getItem("lastName")
   const name = userFirstName + ' ' +userLastName
+  const numberOfRequests = localStorage.getItem('numberOfRequests')
+  const displayNumberOfRequests = () =>{
+    if(numberOfRequests > 0){
+      return (
+        <div className='numberOfRequests'><p>{numberOfRequests}</p></div>
+      )
+    }
+  }
      
   const welcome = "Welcome to Finance Manager's View"
   return (
@@ -31,6 +39,7 @@ const FinanceManagerSidebar = () => {
       <NavLink to="/FinanceManagerDashboard" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
       <MdRequestPage className='menuIcon'/>
       <div className='linkDesc'>Received Requests</div>
+      {displayNumberOfRequests()}
       </NavLink>
      </div>
 

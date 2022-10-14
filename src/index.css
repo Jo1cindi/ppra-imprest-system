@@ -39,6 +39,7 @@ body{
 }
 .aboutLinks{
   width: 350px;
+  margin-top: 1rem;
 }
 .aboutLinks ul{
   width: 100%;
@@ -59,6 +60,7 @@ body{
   justify-content: space-between;
   width: 250px;
   font-size: 16px;
+  margin-top: 0.5rem;
 }
 .registerBtn{
   width: 100px;
@@ -131,6 +133,9 @@ body{
   margin-left: 10%;
   font-family: Karla, sans-serif;
   font-size: 16px;
+}
+.smallerText p{
+  margin-top: 10px;
 }
 .getStartedBtn{
   width: 50%;
@@ -205,6 +210,7 @@ body{
   justify-content: space-between;
   color: #630000;
   font-family: Karla, sans-serif;
+  margin-top: 1rem;
 }
 .avatar{
   width: 100px;
@@ -235,10 +241,12 @@ body{
 .positionDesc{
   color: #630000;
   font-weight: bold;
+  margin-top: 10px;
 }
 .inactivePositionDesc{
   color: #000000;
   font-weight: bold;
+  margin-top: 10px;
 }
 .registrationForm form{
   width: 350px;
@@ -246,6 +254,9 @@ body{
   margin: auto;
   display: flex;
   flex-direction: column;
+}
+.registrationForm h3{
+  margin-top: 1rem;
 }
 
 .registerfield .MuiOutlinedInput-root {
@@ -279,6 +290,7 @@ body{
 }
 .haveAnAccount p{
   font-family: Karla, sans-serif;
+  margin-top: 16px;
 }
 .accountLink{
   margin-top: 15px;
@@ -318,6 +330,7 @@ body{
   color: #000000;
   text-align: center;
   font-weight: bold;
+  margin-top: 20px;
 }
 .loginField .MuiOutlinedInput-root {
   width: 350px;
@@ -380,6 +393,7 @@ body{
 .registerHere p{
   font-family: Karla, sans-serif;
   font-weight: bold;
+  margin-top: 15px;
 }
 .regLink{
   margin-top: 15px;

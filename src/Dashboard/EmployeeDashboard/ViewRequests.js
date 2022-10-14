@@ -6,7 +6,7 @@ import axios from "axios";
 import { AiFillCheckCircle } from "react-icons/ai";
 
 const ViewRequests = () => {
-  const [requests, setRequests] = useState([{}]);
+  const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     fetchRequests();
@@ -33,7 +33,7 @@ const ViewRequests = () => {
   };
 
   const showRequests = () => {
-    if (loading) {
+    if (loading && requests.length > 0) {
       return (
         <div className="employeeRequestsPage">
           <div className="space"></div>
