@@ -394,6 +394,7 @@ body{
 
 
 
+
 /* Receipts */
 .receipts{
   display: flex;
@@ -539,6 +540,145 @@ body{
   background-color: rgba(0,0,0, 0.5);
   filter: blur();
   -webkit-filter: blur();
+}
+.closeWindow{
+  width: 100%;
+  height: 30px;
+}
+.closeWindowIcon{
+  position: absolute;
+  font-size: 20px;
+  cursor: pointer;
+  left: 90%;
+  margin: 10px;
+  color: rgba(0,0,0, 0.5);
+}
+.requestorDetails{
+  height: 75%;
+  width: 100%;
+}
+.requestorName{
+  width: 90%;
+  height: 10%;
+  display: flex;
+  margin-left: 5%;
+  border-bottom: 1.5px solid rgba(0,0,0, 0.1);
+}
+.requestorName h5{
+  font-family:Lato, sans-serif;
+  font-size: 16px;
+  color: rgba(0,0,0, 0.5);
+  margin-top: 5px;
+}
+.requestorName p{
+  font-family: Karla , sans-serif;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.requestorDepartment{
+  width: 90%;
+  height: 10%;
+  display: flex;
+  margin-left: 5%;
+  border-bottom: 1.5px solid rgba(0,0,0, 0.1);
+}
+.requestorDepartment h5{
+  font-family:Lato, sans-serif;
+  font-size: 16px;
+  color: rgba(0,0,0, 0.5);
+  margin-top: 5px;
+}
+.requestorDepartment p{
+  font-family: Karla , sans-serif;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.amountRequested{
+  width: 90%;
+  height: 10%;
+  display: flex;
+  margin-left: 5%;
+  border-bottom: 1.5px solid rgba(0,0,0, 0.1);
+}
+.amountRequested h5{
+  font-family:Lato, sans-serif;
+  font-size: 16px;
+  color: rgba(0,0,0, 0.5);
+  margin-top: 5px;
+}
+.amountRequested p{
+  font-family: Karla , sans-serif;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.reasonForRequest{
+  width: 90%;
+  height: 50%;
+  margin-left: 5%;
+  border-bottom: 1.5px solid rgba(0,0,0, 0.1);
+}
+.reasonForRequest h5{
+  font-family:Lato, sans-serif;
+  font-size: 16px;
+  color: rgba(0,0,0, 0.5);
+}
+.reasonForRequest p{
+  font-family: Karla , sans-serif;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.dateOfRequest{
+  width: 90%;
+  height: 5%;
+  display: flex;
+  margin-left: 5%;
+  color: rgba(0,0,0, 0.5);
+  margin-top: 10px;
+}
+.dateOfRequest h5{
+  font-family:Lato, sans-serif;
+  font-size: 14px;
+  color: rgba(0,0,0, 0.5);
+  margin-top: 5px;
+}
+.dateOfRequest p{
+  font-family: Karla , sans-serif;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.approveRejectButtons{
+  width: 50%;
+  height: 15%;
+  margin-left: 45%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+.denyBtn{
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  cursor: pointer;
+  color: #F5F7D9;
+  background-color: #630000;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+.approveBtn{
+  width: 120px;
+  height: 40px;
+  margin-top: 12px;
+  cursor: pointer;
+  color: #F5F7D9;
+  background-color: #000000;
+  outline: none;
+  border: none;
+  border-radius: 10px;
 }
 
 

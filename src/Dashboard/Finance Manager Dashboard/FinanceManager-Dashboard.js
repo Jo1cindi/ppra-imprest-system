@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import FinanceManagerSidebar from "../../Components/FinanceManagerSidebar";
 import Animation from "../../Images/EmptyRec.json";
 import Lottie from "react-lottie-player";
+import { IoCloseSharp } from "react-icons/io5";
 import axios from "axios";
 
 const FinanceManagerDashboard = () => {
@@ -11,6 +12,9 @@ const FinanceManagerDashboard = () => {
   const [requestDetailsWindow, setRequestDetailsWindow] = useState(false);
   const [requestId, setRequestId] = useState("");
   const [employeeId, setEmployeeId] = useState("");
+  const [date, setDate] = useState()
+  const [orderedRequests, setOrderedRequests] = useState("")
+ 
   useEffect(() => {
     fetchRequests();
   }, []);
@@ -34,6 +38,11 @@ const FinanceManagerDashboard = () => {
       });
   };
 
+  useEffect(()=>{
+    setOrderedRequests(receivedRequests.reverse())
+  }, [receivedRequests])
+  
+  console.log(orderedRequests)
   
 
   useEffect(() => {
@@ -73,7 +82,37 @@ const FinanceManagerDashboard = () => {
           {requestDetailsWindow && (
             <div className="receivedRequestDetails">
               <div className="blurrybg"></div>
-              <div className="requestDetailsCard"></div>
+              <div className="requestDetailsCard">
+                <div className="closeWindow">
+                  <IoCloseSharp onClick={closeRequestDetails} className="closeWindowIcon"/>
+                </div>
+                <div className="requestorDetails">
+                  <div className="requestorName">
+                   <h5>Requestor's Name:</h5>
+                   <p>{requestDetails.firstName + ' ' + requestDetails.lastName}</p>
+                  </div>
+                  <div className="requestorDepartment">
+                  <h5>Requestor's Department:</h5>
+                  <p>{requestDetails.department} department</p>
+                  </div>
+                  <div className="amountRequested">
+                  <h5>Amount Requested:</h5>
+                  <p> Kes {requestDetails.amount}</p>
+                  </div>
+                  <div className="reasonForRequest">
+                  <h5>Reason for Request:</h5>
+                  <p>{requestDetails.reason}</p>
+                  </div>
+                  <div className="dateOfRequest">
+                  <h5>Requested on:</h5>
+                  <p>{date}</p>
+                  </div>
+                </div>
+                <div className="approveRejectButtons">
+                  <input type="submit" value="Deny Request" className="denyBtn"/>
+                  <input type="submit" value="Approve Request" className="approveBtn"/>
+                </div>
+              </div>
             </div>
           )}
           <div className="receivedRequests">
@@ -81,7 +120,7 @@ const FinanceManagerDashboard = () => {
               <h4>Received Requests</h4>
             </div>
             <div className="receivedRequestItems">
-              {receivedRequests.map((receivedRequest, index) => (
+              {receivedRequests.reverse().map((receivedRequest, index) => (
                 <div className="receivedRequest" key={index}>
                   <div className="requestNumber">
                     Request Number #{receivedRequest.request_id + 5} sent on{" "}
@@ -94,6 +133,7 @@ const FinanceManagerDashboard = () => {
                       setRequestDetailsWindow(true);
                       setRequestId(receivedRequest.request_id);
                       setEmployeeId(receivedRequest.employee_id);
+                      setDate(receivedRequest.request_date)
                     }}
                   />
                 </div>
