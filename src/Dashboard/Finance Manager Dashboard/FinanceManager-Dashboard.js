@@ -14,6 +14,9 @@ const FinanceManagerDashboard = () => {
   const [employeeId, setEmployeeId] = useState("");
   const [date, setDate] = useState()
   const [orderedRequests, setOrderedRequests] = useState("")
+  const [numberOfRequests, setNumberOfRequest] = useState("")
+  const approved = "approved"
+  const denied = "denied"
  
   useEffect(() => {
     fetchRequests();
@@ -27,9 +30,6 @@ const FinanceManagerDashboard = () => {
           setReceivedRequests(response.data);
           console.log(response);
           console.log(response.data);
-          const numberOfRequests = response.data.length;
-          console.log(numberOfRequests);
-          localStorage.setItem("numberOfRequests", numberOfRequests);
         }
         setLoading(true);
       })
@@ -39,8 +39,10 @@ const FinanceManagerDashboard = () => {
   };
 
   useEffect(()=>{
-    setOrderedRequests(receivedRequests.reverse())
-  }, [receivedRequests])
+    setOrderedRequests(receivedRequests.reverse());
+    setNumberOfRequest(receivedRequests.length)
+    localStorage.setItem("numberOfRequests", numberOfRequests);
+  }, [receivedRequests, numberOfRequests])
   
   console.log(orderedRequests)
   
@@ -75,6 +77,36 @@ const FinanceManagerDashboard = () => {
   console.log("employee Id", employeeId);
   console.log("details", requestDetails);
 
+
+  //Approve Request
+  const approveRequest = () =>{
+    axios({
+      method: "put",
+      url: "https://ppra-api.herokuapp.com/api/approve-request",
+      data: {approved: approved, requestId: requestId},
+      headers: {"Content-Type": "application/json"}
+    }).then((response)=>{
+       console.log(response)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
+
+
+  //Deny Requests
+  const denyRequest = () =>{
+    axios({
+      method: "put",
+      url: "https://ppra-api.herokuapp.com/api/deny-request",
+      data: {denied: denied, requestId: requestId},
+      headers: {"Content-Type": "application/json"}
+    }).then((response)=>{
+      console.log(response)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
+
   const showReceivedRequests = () => {
     if (loading) {
       return (
@@ -87,6 +119,7 @@ const FinanceManagerDashboard = () => {
                   <IoCloseSharp onClick={closeRequestDetails} className="closeWindowIcon"/>
                 </div>
                 <div className="requestorDetails">
+                  <h5 className="detailsTitle">The Request Details</h5>
                   <div className="requestorName">
                    <h5>Requestor's Name:</h5>
                    <p>{requestDetails.firstName + ' ' + requestDetails.lastName}</p>
@@ -109,8 +142,8 @@ const FinanceManagerDashboard = () => {
                   </div>
                 </div>
                 <div className="approveRejectButtons">
-                  <input type="submit" value="Deny Request" className="denyBtn"/>
-                  <input type="submit" value="Approve Request" className="approveBtn"/>
+                  <input type="submit" value="Deny Request" className="denyBtn" onClick={denyRequest}/>
+                  <input type="submit" value="Approve Request" className="approveBtn" onClick={approveRequest}/>
                 </div>
               </div>
             </div>
@@ -142,7 +175,8 @@ const FinanceManagerDashboard = () => {
           </div>
         </>
       );
-    } else if (receivedRequests.length > 0) {
+    } else if (receivedRequests.length === 0) {
+      
       return (
         <div className="emptyFmRequestPage">
           <div className="reqnotAnimation">
