@@ -445,6 +445,40 @@ body{
   width: 100%;
   height: 100%;
 }
+.employeeNotificationsPage h3{
+  padding-top: 10px;
+  margin-left: 2rem;
+  font-family: Lato,sans-serif;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+.allNotifications{
+  width: 100%;
+  height: 90%;
+}
+.notification{
+  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: #EEEBDD;
+  border-bottom: 0.75px solid rgba(0, 0, 0, 0.3);
+}
+.notifIcon{
+  margin-left: 2rem;
+  margin-right: 5px;
+  padding-top: 15px;
+}
+.approvedIcon{
+  font-size: 18px;
+  color: #000000;
+}
+
+.notifDetails{
+  padding-top: 15px;
+  font-family: Karla, sans-serif;
+  font-size: 16px;
+}
+
 .emptyNotPage{
   width: 100%;
   height: 100%;
