@@ -5,6 +5,7 @@ import Lottie from "react-lottie-player";
 
 
 const History = () => {
+  
 
   const showHistory = () =>{
     return (

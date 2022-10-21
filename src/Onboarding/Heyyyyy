@@ -2,3 +2,4 @@
 "https://ppra-api.herokuapp.com/api/received-requests"
 view-notification
 viewed-notifications
+"/approve-reject-requests-history

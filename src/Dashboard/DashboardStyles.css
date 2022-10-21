@@ -463,6 +463,12 @@ body{
   background-color: #EEEBDD;
   border-bottom: 0.75px solid rgba(0, 0, 0, 0.3);
 }
+.viewedNotif{
+  display: flex;
+  width: 100%;
+  height: 10%;
+  border-bottom: 0.75px solid rgba(0, 0, 0, 0.3);
+}
 .notifIcon{
   margin-left: 2rem;
   margin-right: 5px;
