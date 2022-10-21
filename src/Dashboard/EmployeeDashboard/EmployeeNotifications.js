@@ -44,6 +44,7 @@ const EmployeeNotifications = () => {
     }).then((response)=>{
       console.log(response)
       setViewedNotifications(response.data)
+      setLoading(true)
     }).catch((error)=>{
       console.log(error)
     })
