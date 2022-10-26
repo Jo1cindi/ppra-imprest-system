@@ -5,12 +5,13 @@ import Login from './Onboarding/Login';
 import Register from './Onboarding/Register';
 import ResetPin from './Onboarding/ResetPin';
 import EmployeeDashboard from './Dashboard/EmployeeDashboard/Employee-Dashboard';
-import AccountantDashboard from './Dashboard/Accountant-Dashboard';
+import AccountantDashboard from './Dashboard/AccountantDashboard/Accountant-Dashboard';
 import FinanceManagerDashboard from './Dashboard/Finance Manager Dashboard/FinanceManager-Dashboard';
 import Receipts from './Dashboard/EmployeeDashboard/Receipts';
 import ViewRequests from './Dashboard/EmployeeDashboard/ViewRequests';
 import EmployeeNotifications from './Dashboard/EmployeeDashboard/EmployeeNotifications';
 import History from './Dashboard/Finance Manager Dashboard/History';
+
 
 const PPRAImprest = () => {
 

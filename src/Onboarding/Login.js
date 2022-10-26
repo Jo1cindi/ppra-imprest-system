@@ -136,6 +136,9 @@ const Login = () => {
       }).then((response)=>{
         navigate("/AccountantDashboard")
         console.log(response)
+        localStorage.setItem('firstName', response.data.firstName)
+        localStorage.setItem('lastName', response.data.lastName)
+        localStorage.setItem('email', response.data.email)
       }).catch((error)=>{
         if(error.response.status === 401){
           setLoginError("Incorrect email or password")

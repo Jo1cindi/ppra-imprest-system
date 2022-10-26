@@ -1,8 +1,11 @@
 import React from 'react'
+import AccountantSidebar from '../../Components/AccountantSidebar'
 
 const AccountantDashboard = () => {
   return (
-    <div>Accountant-Dashobard</div>
+    <div>
+      <AccountantSidebar/>
+    </div>
   )
 }
 
