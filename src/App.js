@@ -11,6 +11,9 @@ import Receipts from './Dashboard/EmployeeDashboard/Receipts';
 import ViewRequests from './Dashboard/EmployeeDashboard/ViewRequests';
 import EmployeeNotifications from './Dashboard/EmployeeDashboard/EmployeeNotifications';
 import History from './Dashboard/Finance Manager Dashboard/History';
+import AllocateFunds from './Dashboard/AccountantDashboard/AllocateFunds';
+import PettyCashBook from './Dashboard/AccountantDashboard/PettyCashBook';
+import AccountantHistory from './Dashboard/AccountantDashboard/History';
 
 
 const PPRAImprest = () => {
@@ -31,6 +34,9 @@ const PPRAImprest = () => {
       <Route path="/Receipts" exact element={ <Receipts/>} />
       <Route path="/EmployeeNotifications" exact element={ <EmployeeNotifications/>} />
       <Route path="/History" exact element={ <History/>} />
+      <Route path="/AllocateFunds" exact element={ <AllocateFunds/>} />
+      <Route path="/PettyCashBook" exact element={ <PettyCashBook/>} />
+      <Route path="/AccountantHistory" exact element={ <AccountantHistory/>} />
       </Routes>
      </Router>
     </div>

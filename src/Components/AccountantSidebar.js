@@ -5,6 +5,7 @@ import {BsClockHistory} from 'react-icons/bs';
 import {RiFundsFill} from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
 import { IoLogOut, IoNotifications} from 'react-icons/io5'
+import { FaBook} from 'react-icons/fa'
 
 const AccountantSidebar = () => {
     const userFirstName = localStorage.getItem("firstName")
@@ -16,39 +17,45 @@ const AccountantSidebar = () => {
     <div>
       <div className='fmSidebar'>
     <LogoLight/>
-    <div className = "fmName">
+    <div className = "accName">
       <div className = "greeting">
         <p>{welcome}</p>
       </div>
-      <div className= "name">
+      <div className= "accname">
         <p>{name}</p>
       </div>
     </div>
-    <div className="fmenu">
+    <div className="accmenu">
 
-     <div className="fmmenuItem">
+     <div className="accmenuItem">
       <NavLink to="/AccountantDashboard" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
       <IoNotifications className='menuIcon'/>
       <div className='linkDesc'>Notifications</div>
       </NavLink>
      </div>
      
-     <div className="fmmenuItem">
-      <NavLink to="/History" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
+     <div className="accmenuItem">
+      <NavLink to="/AllocateFunds" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
       <RiFundsFill className='menuIcon'/>
       <div className='linkDesc'>Allocate Funds</div>
       </NavLink>
      </div>
   
+     <div className="accmenuItem">
+      <NavLink to="/PettyCashBook" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
+      <FaBook className='menuIcon'/>
+      <div className='linkDesc'>Petty Cash Book</div>
+      </NavLink>
+     </div>
 
-     <div className="fmmenuItem">
-      <NavLink to="/History" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
+     <div className="accmenuItem">
+      <NavLink to="/AccountantHistory" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
       <BsClockHistory className='menuIcon'/>
       <div className='linkDesc'>History</div>
       </NavLink>
      </div>
 
-     <div className="fmmenuItem">
+     <div className="accmenuItem">
       <NavLink to="/LandingPage" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
       <IoLogOut className='menuIcon'/>
        <div className='linkDesc'>Logout</div>

@@ -49,6 +49,23 @@ body{
   font-size: 16px;
   font-family: Lato, sans-serif;
 }
+.accName{
+  width: 100%;
+  height: 20%;
+  margin-top: 20px;
+  border-top: 0.5px solid #F5F7D9;
+  border-bottom: 0.5px solid #F5F7D9;  
+  color: #EEEBDD;
+  text-align: left;
+  font-size: 16px;
+  font-family: Lato, sans-serif;
+}
+.accname{
+  font-family: Karla, sans-serif;
+  color: #D8B6A4;
+  margin-left: 1rem;
+  margin-top: 5px;
+}
 .name{
   font-family: Karla, sans-serif;
   color: #D8B6A4;
@@ -75,6 +92,14 @@ body{
   flex-direction: column;
   justify-content: space-evenly;
 }
+.accmenu{
+  width: 95%;
+  height: 60%;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 .menuItem{
   width: 95%;
   height: 10%;
@@ -83,6 +108,11 @@ body{
 .fmmenuItem{
   width: 100%;
   height: 15%;
+  list-style: none;
+}
+.accmenuItem{
+  width: 100%;
+  height: 10%;
   list-style: none;
 }
 .numberOfRequests{
