@@ -68,6 +68,14 @@ const EmployeeDashboard = () => {
     });
   };
 
+//Error if amount is more or less than the minimum set amount
+let amountError = ""
+if(formData.amount === 1  ){
+  amountError = "Enter an amount between kes 1 and kes 50,000"
+}else if(formData.amount.length === 0){
+  amountError = ""
+}
+//Error if email address is incorrect
   let emailError = "";
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (regex.test(formData.email) === false) {
@@ -202,6 +210,8 @@ const EmployeeDashboard = () => {
                   name="amount"
                   value={formData.amount}
                   onChange={handleChange}
+                  helperText={amountError}
+                  FormHelperTextProps={{style: {color: "red"}}}
                   margin="normal"
                   variant="outlined"
                 />
@@ -231,7 +241,7 @@ const EmployeeDashboard = () => {
                     !formData.date ||
                     !formData.amount ||
                     !formData.reasonForRequest ||
-                    regex.test(formData.email === false)
+                    regex.test(formData.email) === false
                   }
                 />
               </div>

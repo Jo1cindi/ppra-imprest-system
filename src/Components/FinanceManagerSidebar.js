@@ -12,10 +12,17 @@ const FinanceManagerSidebar = () => {
   const userLastName = localStorage.getItem("lastName")
   const name = userFirstName + ' ' +userLastName
   const numberOfRequests = localStorage.getItem('numberOfRequests')
-  const displayNumberOfRequests = () =>{
+  const displayNumberOfRequestsActive = () =>{
     if(numberOfRequests > 0){
       return (
         <div className='numberOfRequests'><p>{numberOfRequests}</p></div>
+      )
+    }
+  }
+  const displayNumberOfRequestsInactive=()=>{
+    if(numberOfRequests > 0){
+      return (
+        <div className='numberOfRequestsInactive'><p>{numberOfRequests}</p></div>
       )
     }
   }
@@ -39,7 +46,7 @@ const FinanceManagerSidebar = () => {
       <NavLink to="/FinanceManagerDashboard" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
       <MdRequestPage className='menuIcon'/>
       <div className='linkDesc'>Received Requests</div>
-      {displayNumberOfRequests()}
+      { ({isActive})=> isActive ? displayNumberOfRequestsActive() : displayNumberOfRequestsInactive()}
       </NavLink>
      </div>
 

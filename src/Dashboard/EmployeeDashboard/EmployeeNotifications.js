@@ -10,6 +10,7 @@ const EmployeeNotifications = () => {
   const [notifications, setNotifications] = useState([]);
   const[viewedNotifications, setViewedNotifications] = useState([])
   const [loading, setLoading] = useState(false);
+  const[ numberOfNotifications, setNumberOfNotifications] = useState()
 
   //Loading Notifications
   useEffect(() => {
@@ -33,8 +34,11 @@ const EmployeeNotifications = () => {
   };
 
   useEffect(()=>{
+    setNumberOfNotifications(notifications.length)
+    localStorage.setItem("numberOfNotifications", numberOfNotifications)
     loadViewedNotifications()
-  }, [])
+  },[notifications.length, numberOfNotifications])
+  
   const loadViewedNotifications = () =>{
     axios({
       method: "post",
