@@ -4,7 +4,7 @@ import LogoLight from './LogoLight';
 import {BsClockHistory} from 'react-icons/bs';
 import {RiFundsFill} from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
-import { IoLogOut, IoNotifications} from 'react-icons/io5'
+import { IoLogOut } from 'react-icons/io5'
 import { FaBook} from 'react-icons/fa'
 
 const AccountantSidebar = () => {
@@ -29,17 +29,11 @@ const AccountantSidebar = () => {
 
      <div className="accmenuItem">
       <NavLink to="/AccountantDashboard" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
-      <IoNotifications className='menuIcon'/>
-      <div className='linkDesc'>Notifications</div>
-      </NavLink>
-     </div>
-     
-     <div className="accmenuItem">
-      <NavLink to="/AllocateFunds" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
       <RiFundsFill className='menuIcon'/>
       <div className='linkDesc'>Allocate Funds</div>
       </NavLink>
      </div>
+     
   
      <div className="accmenuItem">
       <NavLink to="/PettyCashBook" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>

@@ -770,3 +770,140 @@ body{
 }
 
 
+
+
+
+
+/* Accountant Dashboard */
+.accountantNotifContent{
+  position: absolute;
+  width: 82vw;
+  height: 100vh;
+  left: 18%;
+}
+.allApprovedRequests{
+  width: 100%;
+  height: 100%;
+}
+.allApprovedRequests h3{
+  padding-top: 10px;
+  margin-left: 5%;
+  font-size: 24px;
+  font-family: Lato, sans-serif;
+}
+.approvedRequests{
+  width: 80%;
+  height: 90%;
+  margin-left: 5%;
+  margin-top: 10px;
+}
+.approvedRequest{
+  width: 60%;
+  background-color: #EEEBDD;
+  height: 10;
+  margin-bottom: 2%;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.approvedRequest input{
+  margin-left: 70%;
+  width: 100px;
+  height: 30px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #630000;
+  cursor: pointer;
+  color: #F5F7D9;
+}
+.approvedRequest p{
+  font-family: Karla,sans-serif;
+  padding-top: 5px;
+  margin-left: 1rem;
+}
+.approvedRequestsDetailsWindow{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0, 0.5);
+  position: absolute;
+  right: 0%;
+}
+.approvedRequestsCard{
+  width: 50%;
+  height: 70%;
+  margin-left: 25%;
+  margin-top: 5%;
+  background-color: #F5F7D9;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+}
+.closeWindowIcon2{
+  margin-left: 90%;
+  font-size: 20px;
+  cursor: pointer;
+  padding-top: 6px;
+}
+.approvedRequestsCardTitle{
+  width: 100%;
+  border-bottom: solid 1px rgba(0,0,0, 0.5);
+}
+.approvedRequestsCardTitle h5{
+  margin-left: 2rem;
+  font-size: 18px;
+  font-family: Lato, sans-serif;
+  padding-bottom: 10px;
+}
+.approvedRequestName{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-size: 24px;
+  font-family: Karla, sans-serif;
+  margin-top: 15px;
+  font-weight: bold;
+  color: rgba(0,0,0, 0.7);
+}
+.amountRequested{
+  margin: 2rem;
+  margin-top: 20px;
+  width: 50%;
+  height: 120px;
+  background-color: #EEEBDD;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.amount2{
+  margin-left: 10px;
+  margin-top: 10px;
+  color: rgba(0,0,0, 1);
+  font-size: 20px;
+  font-family: Karla, sans-serif;
+  font-weight: bold;
+}
+.date2{
+  margin-top: 10px;
+  font-size: 16px;
+  margin-left: 5px;
+  font-family: Karla, sans-serif;
+  color: rgba(0,0,0, 0.7);
+  border-bottom: 1px solid rgba(0,0,0, 0.3);
+  width: 80%;
+}
+.date2 p{
+  margin-bottom: 10px;
+}
+.approvedRequestsCard input{
+  margin-left: 60%;
+  width: 150px;
+  height: 40px;
+  background-color: #630000;
+  color: #F5F7D9;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: Karla, sans-serif;
+  font-size: 14px;
+}
+
