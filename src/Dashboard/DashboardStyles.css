@@ -484,13 +484,43 @@ body{
   width: 100%;
   height: 100%;
 }
-.employeeNotificationsPage h3{
+.employeeNotifContent h3{
   padding-top: 10px;
   margin-left: 2rem;
   font-family: Lato,sans-serif;
   font-size: 20px;
   padding-bottom: 10px;
 }
+.notificationTabs{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.activeTab{
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  border-bottom: 2px solid #630000;
+  margin-left: 2rem;
+}
+.activeTab p{
+  padding-top: 20px;
+  font: 16px;
+  font-family: Karla, san-serif;
+}
+.inactiveTab{
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  margin-left: 2rem;
+}
+.inactiveTab p{
+  padding-top: 20px;
+  font: 16px;
+  font-family: Karla, san-serif;
+}
+
 .allNotifications{
   width: 100%;
   height: 90%;
@@ -905,5 +935,11 @@ body{
   cursor: pointer;
   font-family: Karla, sans-serif;
   font-size: 14px;
+}
+.allocationSuccess{
+  margin-left: 50%;
+  font-family: Karla, sans-serif;
+  color: green;
+  margin-top: 10px;
 }
 

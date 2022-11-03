@@ -7,14 +7,19 @@ import { useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 
 const AccountantDashboard = () => {
+  //All variables
   const [approvedRequests, setApprovedRequests] = useState([]);
   const [loading, setLoading] = useState(false);
   const [approvedRequestDetailsWindow, setAprovedRequestDetailsWindow] = useState(false)
   const [employeeId, setEmployeeId] = useState()
   const [approvedRequestDetails, setApprovedRequestDetails] = useState([])
   const [amount, setAmount] = useState()
+  const [reason, setReason] = useState()
   const [date,setDate] = useState()
-
+  const [requestId, setRequestId] = useState()
+  const[allocationSuccess, setAllocationSuccess] = useState("")
+  const fundsAllocationStatus = "allocated"
+  
 
   //Getting approved requests from database
   useEffect(() => {
@@ -24,7 +29,7 @@ const AccountantDashboard = () => {
     axios("https://ppra-api.herokuapp.com/api/accountant-notifications")
       .then((response) => {
         console.log(response);
-        setApprovedRequests(response.data.reverse());
+        setApprovedRequests(response.data);
         setLoading(true);
       })
       .catch((error) => {
@@ -52,6 +57,47 @@ const AccountantDashboard = () => {
 
 
   console.log(approvedRequests);
+
+  //Date the funds were allocated
+  let dateAllocated = new Date();
+  
+  
+    //sending money 
+  const allocateFunds = () =>{
+    //Allocating the funds
+    axios({
+      method: "post",
+      url: "https://ppra-api.herokuapp.com/api/send-money",
+      data: {employee_id: employeeId},
+      headers:{ "Content-Type": "application/json" }
+    }).then((response)=>{
+      console.log(response)
+    }).catch((error)=>{
+      console.log(error)
+    })
+
+    //Recording the allocation of funds
+    axios({
+      method: "post",
+      url: "https://ppra-api.herokuapp.com/api/record-transaction",
+      data: {
+        amount: amount,
+        reason: reason,
+        employeeId: employeeId,
+        requestId: requestId,
+        accountantId: localStorage.getItem("accountantId"),
+        date: dateAllocated.toDateString(),
+        allocationStatus: fundsAllocationStatus
+      }
+    }).then((response)=>{
+      console.log(response)
+      if(response.status === 200){
+        setAllocationSuccess("The funds have been sent successfully!")
+      }
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
   
   //Loading Notifications
   const showNotifications = () => {
@@ -73,7 +119,8 @@ const AccountantDashboard = () => {
                  <div className="amount2">KES {amount}.00</div>
                  <div className="date2"><p>Request sent on: {date}</p></div>
                 </div>
-                <input type="submit" value="Allocate Funds"/>
+                <input type="submit" value="Allocate Funds" onClick={allocateFunds}/>
+                <p className="allocationSuccess">{allocationSuccess}</p>
               </div>
               </div>
             )
@@ -93,6 +140,8 @@ const AccountantDashboard = () => {
                   setEmployeeId(approvedRequest.employee_id)
                   setAmount(approvedRequest.amount_requested)
                   setDate(approvedRequest.request_date)
+                  setRequestId(approvedRequest.request_id)
+                  setReason(approvedRequest.reason)
                 }}/>
               </div>
             ))}

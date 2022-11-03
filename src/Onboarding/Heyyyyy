@@ -3,3 +3,18 @@
 view-notification
 viewed-notifications
 "/approve-reject-requests-history
+
+Initiator: "testapi",
+    Amount: 10,
+    PartyA: 600982,
+    PartyB: 254795471237,
+    QueueTimeOutURL: "https://c4a6-197-237-138-40.eu.ngrok.io/api/record-transaction",
+    ResultURL: "https://c4a6-197-237-138-40.eu.ngrok.io/api/record-transaction",
+    CommandID: "BusinessPayment",
+
+const amount = req.body.amount;
+    const reason = req.body.reason;
+    const employeeId = req.body.employeeId;
+    const requestId = req.body.requestId;
+    const accountantId = req.body.accountantId
+    const date = req.body.date;    

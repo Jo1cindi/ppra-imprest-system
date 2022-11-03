@@ -128,6 +128,7 @@ const Login = () => {
       
 
       //Post request
+      //Accountant
       axios({
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/accountant-login",
@@ -139,6 +140,7 @@ const Login = () => {
         localStorage.setItem('firstName', response.data.firstName)
         localStorage.setItem('lastName', response.data.lastName)
         localStorage.setItem('email', response.data.email)
+        localStorage.setItem('accountantId', response.data.accountantId)
       }).catch((error)=>{
         if(error.response.status === 401){
           setLoginError("Incorrect email or password")
@@ -148,6 +150,7 @@ const Login = () => {
     } else if (activeAvatar === avatarArray[2].id) {
       console.log("Finance Manager");
       //Post request
+      //Finance Manager
       axios({
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/financemanager-login",
