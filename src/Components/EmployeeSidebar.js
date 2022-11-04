@@ -30,6 +30,10 @@ const EmployeeSidebar = () => {
    greeting = "Good evening";
  }
 
+ //total number of notifications
+ const numberOfNotifications = localStorage.getItem("numberOfNotifications")
+ const numberOfAccountantNotifications = localStorage.getItem("numberOfAccountantNotifications")
+ const totalNotifications = parseInt(numberOfAccountantNotifications, 10) + parseInt(numberOfNotifications, 10)
  
 
   return ( 
@@ -63,6 +67,9 @@ const EmployeeSidebar = () => {
       <NavLink to="/EmployeeNotifications" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
       <IoNotificationsSharp className='menuIcon'/>
       <div className='linkDesc'>Notifications</div>
+      <div className="totalNotifications">
+       <p>{totalNotifications}</p>
+      </div>
       </NavLink>
      </div>
 
