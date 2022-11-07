@@ -467,7 +467,156 @@ body{
   color: #630000;
   text-align: center;
 }
-
+.allReceipts{
+  width: 100%;
+  height: 100%;
+}
+.allReceipts h3{
+  margin-left: 2rem;
+  padding-top: 1rem;
+  font-family: Lato, sans-serif;
+  font-size: 28px;
+  font-weight: bolder;
+}
+.receiptSearchBar{
+  margin-top: 10px;
+  margin-left: 2rem;
+  width: 500px;
+  height: 52px;
+  display: flex;
+}
+.searchInput .MuiOutlinedInput-root{
+  width: 328px;
+  height: 52px;
+  border: none;
+  background-color: #EEEBDD;
+  border-radius: 10px;
+}
+.searchBtn{
+  margin-left: 10px;
+  width: 120px;
+  height: 40px;
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #000000;
+  color: #F5F7D9;
+  font-size: 16px;
+}
+.receiptList{
+  width: 90%;
+  height: 70%;
+  margin-top: 2rem;
+}
+.receipt{
+  margin-left: 2rem;
+  width: 650px;
+  height: 100px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+}
+.receiptTitle{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.receiptReason{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.recIcon{
+  font-size: 20px;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+.receiptReason p{
+  font-size: 16px;
+  font-family: Karla, san-serif;
+}
+.receiptAmount{
+  margin-top: 10px;
+  margin-right: 50px;
+  font-family: Karla, san-serif;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.receiptDetailsBtn{
+  margin-top: 10px;
+}
+.receiptDetailsBtn input{
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background-color: #630000;
+  color: #F5F7D9;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: Karla, sans-serif;
+}
+.receiptDetails{
+  width: 100vw;
+  height: 100vh;
+  background-color: darkcyan;
+  position: absolute;
+  right: 0vw;
+  z-index: 99;
+}
+.receiptCard{
+  width: 60%;
+  height: 80%;
+  background-color: darkgoldenrod;
+  margin-top: 2rem;
+  margin-left: 20%;
+}
+.closeReceiptCard{
+  font-size: 40px;
+  margin-left: 80%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#receiptCardContent{
+  width: 100%;
+  height: 85%;
+  background-color: darkgray;
+}
+.receipCardtTitle{
+  display: flex;
+  width: 100%;
+  background-color: darkkhaki;
+  text-align: center;
+}
+.receipCardtTitle h4{
+  margin-top: 12px;
+  margin-left: 6rem;
+  font-size: 18px;
+  font-family: Lato, sans-serif;
+}
+.employeeDetails{
+  width: 100%;
+  height: 25%;
+  background-color: darkmagenta;
+  display: flex;
+}
+.employeeDetails h5{
+  margin-left: 2rem;
+  font-size: 16px;
+  font-family: Lato, sans-serif;
+  margin-top: 5px;
+}
+.allEmployeeDetails{
+  width: 50%;
+  height: 85%;
+  background-color: darkolivegreen;
+  margin-left: 30%;
+  margin-top: 5px;
+}
 
 
 /* employeeNotifications */

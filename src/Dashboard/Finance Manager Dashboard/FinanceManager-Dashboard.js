@@ -46,7 +46,7 @@ const FinanceManagerDashboard = () => {
   
   console.log(orderedRequests)
   
-
+  //Request Details
   useEffect(() => {
     if (requestDetailsWindow) {
       axios({
@@ -73,9 +73,7 @@ const FinanceManagerDashboard = () => {
     setRequestDetailsWindow(false)
   }
 
-  console.log("request Id", requestId);
-  console.log("employee Id", employeeId);
-  console.log("details", requestDetails);
+  
 
 
   //Approve Request

@@ -8,6 +8,7 @@ import { ImCross } from "react-icons/im";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 
 
+
 const EmployeeNotifications = () => {
   const [notifications, setNotifications] = useState([]);
   const [viewedNotifications, setViewedNotifications] = useState([]);
@@ -245,11 +246,11 @@ const EmployeeNotifications = () => {
             }
             {
               viewedAccountantNotifications.map((viewedNotification, index)=>(
-                <div className="viewedNotif">
+                <div className="viewedNotif" key={index}>
                   <div className="notifIcon">
                   <RiMoneyDollarCircleFill className="approvedIcon"/>
                   </div>
-                  <div className= "notifDetails" key = {index}>
+                  <div className= "notifDetails">
                   You have received <strong>Kes {viewedNotification.amount_requested}</strong> from the accountant for a request you sent on {viewedNotification.request_date}
                   </div>
                 </div>
