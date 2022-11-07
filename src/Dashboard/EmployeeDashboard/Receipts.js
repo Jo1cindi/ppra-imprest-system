@@ -21,8 +21,14 @@ const Receipts = () => {
   const [requestId, setRequestId] = useState()
   const [receiptSummary, setReceiptSummary] = useState([])
   const [employeeId, setEmployeeId] = useState()
+  const [reason, setReason] = useState()
+  const [amount, setAmount] = useState()
+  const [requestDate, setRequestDate] = useState()
 
-  console.log(employeeId)
+  const [accountantName, setAccountantName] = useState()
+  
+
+  
 
   //Filtering while typing
   const handleChange = (e) =>{
@@ -53,7 +59,7 @@ const Receipts = () => {
       });
   };
  
-  // console.log("details",employeeDetails[0].firstName)
+  
 // //Loading receipt details
 useEffect(()=>{
   if(receiptDetails){
@@ -65,12 +71,13 @@ useEffect(()=>{
     }).then((response)=>{
       console.log(response)
       setReceiptSummary(response.data)
+      setAccountantName(response.data[0][0].firstName + " " + response.data[0][0].lastName)
     }).catch((error)=>{
       console.log(error)
     })
   }
 }, [employeeId, requestId, receiptDetails])
-console.log("receipt,", receiptSummary)
+
    
   ///Search Function
   const searchReceipt = () =>{
@@ -110,12 +117,35 @@ console.log("receipt,", receiptSummary)
                  <div className="employeeDetails">
                   <h5>Employee Details</h5>
                   <div className="allEmployeeDetails">
-                    <p>Name:  {employeeDetails[0].firstName + ' ' + employeeDetails[0].lastName}</p>
-                    <p>Email:  {localStorage.getItem("email")}</p>
-                    <p>Department:  {employeeDetails[0].department}</p>
-                    <p>Employee_id: {employeeDetails[0].employee_id}</p>
+                    <p><strong>Name:</strong>  {employeeDetails[0].firstName + ' ' + employeeDetails[0].lastName}</p>
+                    <p><strong>Email:</strong>  {localStorage.getItem("email")}</p>
+                    <p><strong>Department:</strong>  {employeeDetails[0].department}</p>
                   </div>
                  </div>
+                 <div className="requestSummary">
+                  <h5>Petty Cash Request Summary</h5>
+                  <div className="allrequestSummary">
+                    <p><strong>Request Number: </strong> {requestId + 5}</p>
+                    <p><strong>Reason for Request: </strong> {reason}</p>
+                    <p><strong>Amount Requested: </strong> {amount}</p>
+                    <p><strong>Date Requested: </strong> {requestDate}</p>
+                  </div>
+                </div>
+                <div className="fundAllocationSummary">
+                  <h5>Funds Allocation Summary</h5>
+                  <div className="fundsAllocationOutput">
+                    <p><strong>Fund Allocation Status: </strong> approved</p>
+                    <p><strong>Date Allocated:</strong> {receiptSummary[1]}</p>
+                  </div>
+                </div>
+                <div className = "servedby">
+                    <h5>Served by: </h5>
+                    <p>{accountantName}</p>
+                </div>
+                
+                </div>
+                <div className="download">
+                  <input type="submit" value="Download Receipt"/>
                 </div>
               </div>
              </div>
@@ -160,6 +190,9 @@ console.log("receipt,", receiptSummary)
                     setReceiptDetails(true)
                     setRequestId(receipt.request_id)
                     setEmployeeId(employeeDetails[0].employee_id)
+                    setReason(receipt.reason)
+                    setAmount(receipt.amount_requested)
+                    setRequestDate(receipt.request_date)
                   }
                   }/>
                  </div>
