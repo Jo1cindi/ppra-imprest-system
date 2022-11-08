@@ -101,7 +101,7 @@ const AccountantDashboard = () => {
   
   //Loading Notifications
   const showNotifications = () => {
-    if (loading) {
+    if (loading && approvedRequests.length > 0) {
       return (
         <> 
           {

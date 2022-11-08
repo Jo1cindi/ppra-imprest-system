@@ -1,7 +1,6 @@
 import React from 'react'
 import "../Dashboard/DashboardStyles.css";
 import LogoLight from './LogoLight';
-import {BsClockHistory} from 'react-icons/bs';
 import {RiFundsFill} from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
 import { IoLogOut } from 'react-icons/io5'
@@ -42,12 +41,6 @@ const AccountantSidebar = () => {
       </NavLink>
      </div>
 
-     <div className="accmenuItem">
-      <NavLink to="/AccountantHistory" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
-      <BsClockHistory className='menuIcon'/>
-      <div className='linkDesc'>History</div>
-      </NavLink>
-     </div>
 
      <div className="accmenuItem">
       <NavLink to="/LandingPage" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>

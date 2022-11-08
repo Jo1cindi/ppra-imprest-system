@@ -51,7 +51,7 @@ body{
 }
 .accName{
   width: 100%;
-  height: 20%;
+  height: 12%;
   margin-top: 20px;
   border-top: 0.5px solid #F5F7D9;
   border-bottom: 0.5px solid #F5F7D9;  
@@ -94,7 +94,7 @@ body{
 }
 .accmenu{
   width: 95%;
-  height: 60%;
+  height: 50%;
   margin-left: 5px;
   display: flex;
   flex-direction: column;
