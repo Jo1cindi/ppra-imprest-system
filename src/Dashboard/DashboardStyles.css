@@ -1089,8 +1089,25 @@ body{
   border-radius: 10px;
 }
 
-
-
+/* Finance Manager History */
+.fmHistory{
+  position: absolute;
+  width: 82vw;
+  height: 100vh;
+  left: 18%;
+}
+.fmHistory h3{
+  margin-left: 2rem;
+  font-family: Karla, sans-serif;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.historyItems{
+  width:100%;
+  height: 30px;
+  border-bottom: 1px solid #000000;
+}
 
 
 

@@ -9,7 +9,7 @@ import { FaReceipt } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import logoImage from "../../Images/logoDark.png"
+import logoImage from "../../Images/logoDark.png";
 
 const Receipts = () => {
   //Variables
@@ -104,23 +104,6 @@ const Receipts = () => {
     }
   }, [searchQuery]);
 
-  //Download Receipt
-  const downloadReceipt = () => {
-    const input = document.getElementById("receiptCardContent");
-    html2canvas(input, {
-      logging: true,
-      letterRendering: 1,
-      useCORS: true,
-    }).then((canvas) => {
-      const imgWidth = 200;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      const imgData = canvas.toDataURL("img/png");
-      const receiptPdf = new jsPDF("p", "mm", "a4");
-      receiptPdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-      receiptPdf.save("receipt.pdf");
-    });
-  };
-
   const showReceipts = () => {
     if (loading) {
       return (
@@ -135,7 +118,7 @@ const Receipts = () => {
                 <div id="receiptCardContent">
                   <div className="receipCardtTitle">
                     <div className="logoImage">
-                    <img alt="logo" src={logoImage} />
+                      <img alt="logo" src={logoImage} />
                     </div>
                     <h4>Petty Cash Receipt</h4>
                   </div>
@@ -194,7 +177,30 @@ const Receipts = () => {
                   <input
                     type="submit"
                     value="Download Receipt"
-                    onClick={downloadReceipt()}
+                    onClick={() => {
+                      const input =
+                        document.getElementById("receiptCardContent");
+                      html2canvas(input, {
+                        logging: true,
+                        letterRendering: 1,
+                        useCORS: true,
+                      }).then((canvas) => {
+                        const imgWidth = 200;
+                        const imgHeight =
+                          (canvas.height * imgWidth) / canvas.width;
+                        const imgData = canvas.toDataURL("img/png");
+                        const receiptPdf = new jsPDF("p", "mm", "a4");
+                        receiptPdf.addImage(
+                          imgData,
+                          "PNG",
+                          0,
+                          0,
+                          imgWidth,
+                          imgHeight
+                        );
+                        receiptPdf.save("receipt.pdf");
+                      });
+                    }}
                   />
                 </div>
               </div>
