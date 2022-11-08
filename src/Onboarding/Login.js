@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Logo from "../Components/Logo";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { FaUserTie } from "react-icons/fa";
-import { TextField } from "@mui/material";
+import { TextField, InputAdornment, IconButton } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import LoginIllustration from "../Images/login.svg";
 import axios from "axios";
@@ -77,28 +78,46 @@ const Login = () => {
     emailError = "";
   }
 
-  //Navigation 
-  const navigate = useNavigate()
+  //Password regex test
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword);
+  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/;
+  let passwordError = "";
+  if (
+    passwordRegex.test(employee.password) === false ||
+    passwordRegex.test(accountant.password) === false ||
+    passwordRegex.test(financeManager.password) === false
+  ) {
+    passwordError = "weak password";
+  } else {
+    passwordError = "strong password";
+  }
+  if (!employee.password || !accountant.password || !financeManager.password) {
+    passwordError = "";
+  }
+
+  //Navigation
+  const navigate = useNavigate();
 
   //login error
-  const [loginError, setLoginError] = useState("")
+  const [loginError, setLoginError] = useState("");
 
   //Set user
-  let user  = "";
-  if(activeAvatar === avatarArray[0].id){
-    user = "employee"
-    localStorage.setItem('user', user)
-  }else if(activeAvatar === avatarArray[1].id){
-    user = "accountant"
-    localStorage.setItem('user', user)
-  }else{
-    user = "finance manager"
-    localStorage.setItem('user', user)
+  let user = "";
+  if (activeAvatar === avatarArray[0].id) {
+    user = "employee";
+    localStorage.setItem("user", user);
+  } else if (activeAvatar === avatarArray[1].id) {
+    user = "accountant";
+    localStorage.setItem("user", user);
+  } else {
+    user = "finance manager";
+    localStorage.setItem("user", user);
   }
-  
 
   //Login Function
-  const login = (e) =>{
+  const login = (e) => {
     e.preventDefault();
     //employee
     if (activeAvatar === avatarArray[0].id) {
@@ -106,26 +125,26 @@ const Login = () => {
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/employee-login",
         data: employee,
-        headers: {"Content-Type": "application/json"}
-      }).then((response)=>{
-        navigate("/EmployeeDashboard")
-        console.log(response)
-        localStorage.setItem('firstName', response.data.firstName)
-        localStorage.setItem('lastName', response.data.lastName)
-        localStorage.setItem('email', response.data.email)
-        console.log(response.data.email)
-        console.log(response.data.lastName)
-      }).catch((error)=>{
-        if(error.response.status === 401){
-          setLoginError("Incorrect email or password")
-        }
-         console.log(error)
+        headers: { "Content-Type": "application/json" },
       })
+        .then((response) => {
+          navigate("/EmployeeDashboard");
+          console.log(response);
+          localStorage.setItem("firstName", response.data.firstName);
+          localStorage.setItem("lastName", response.data.lastName);
+          localStorage.setItem("email", response.data.email);
+          console.log(response.data.email);
+          console.log(response.data.lastName);
+        })
+        .catch((error) => {
+          if (error.response.status === 401) {
+            setLoginError("Incorrect email or password");
+          }
+          console.log(error);
+        });
       console.log("Employee");
-
     } else if (activeAvatar === avatarArray[1].id) {
       console.log("Accountant");
-      
 
       //Post request
       //Accountant
@@ -133,20 +152,22 @@ const Login = () => {
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/accountant-login",
         data: accountant,
-        headers: {"Content-Type": "application/json"}
-      }).then((response)=>{
-        navigate("/AccountantDashboard")
-        console.log(response)
-        localStorage.setItem('firstName', response.data.firstName)
-        localStorage.setItem('lastName', response.data.lastName)
-        localStorage.setItem('email', response.data.email)
-        localStorage.setItem('accountantId', response.data.accountantId)
-      }).catch((error)=>{
-        if(error.response.status === 401){
-          setLoginError("Incorrect email or password")
-        }
-         console.log(error)
+        headers: { "Content-Type": "application/json" },
       })
+        .then((response) => {
+          navigate("/AccountantDashboard");
+          console.log(response);
+          localStorage.setItem("firstName", response.data.firstName);
+          localStorage.setItem("lastName", response.data.lastName);
+          localStorage.setItem("email", response.data.email);
+          localStorage.setItem("accountantId", response.data.accountantId);
+        })
+        .catch((error) => {
+          if (error.response.status === 401) {
+            setLoginError("Incorrect email or password");
+          }
+          console.log(error);
+        });
     } else if (activeAvatar === avatarArray[2].id) {
       console.log("Finance Manager");
       //Post request
@@ -155,22 +176,24 @@ const Login = () => {
         method: "post",
         url: "https://ppra-api.herokuapp.com/api/financemanager-login",
         data: financeManager,
-        headers: {"Content-Type": "application/json"}
-      }).then((response)=>{
-        navigate("/FinanceManagerDashboard")
-        localStorage.setItem('firstName', response.data.firstName)
-        localStorage.setItem('lastName', response.data.lastName)
-        localStorage.setItem('email', response.data.email)
-        console.log(response)
-      }).catch((error)=>{
-        if(error.response.status === 401){
-          setLoginError("Incorrect email or password")
-        }
-         console.log(error)
+        headers: { "Content-Type": "application/json" },
       })
+        .then((response) => {
+          navigate("/FinanceManagerDashboard");
+          localStorage.setItem("firstName", response.data.firstName);
+          localStorage.setItem("lastName", response.data.lastName);
+          localStorage.setItem("email", response.data.email);
+          console.log(response);
+        })
+        .catch((error) => {
+          if (error.response.status === 401) {
+            setLoginError("Incorrect email or password");
+          }
+          console.log(error);
+        });
     }
-    localStorage.setItem('user', JSON.stringify(user))
-  }
+    localStorage.setItem("user", JSON.stringify(user));
+  };
   return (
     <>
       <Logo />
@@ -247,13 +270,36 @@ const Login = () => {
                   ? accountant.password
                   : financeManager.password
               }
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
               onChange={handleChange}
+              FormHelperTextProps={
+                passwordRegex.test(employee.password) === false ||
+                passwordRegex.test(accountant.password) === false ||
+                passwordRegex.test(financeManager.password) === false
+                  ? { style: { color: "red" } }
+                  : { style: { color: "green" } }
+              }
+              helperText={passwordError}
               margin="normal"
               variant="outlined"
-              type= "password"
+              type={showPassword ? "text" : "password"}
               required
             />
-            <Link path to="/ResetPin" className="forgotPassword">Forgot Password?</Link>
+            <Link path to="/ResetPin" className="forgotPassword">
+              Forgot Password?
+            </Link>
             <input
               type="submit"
               value="Login"
@@ -264,19 +310,27 @@ const Login = () => {
                 !financeManager.email ||
                 !employee.password ||
                 !accountant.password ||
-                !financeManager.password
+                !financeManager.password ||
+                passwordRegex.test(employee.password) === false ||
+                passwordRegex.test(accountant.password) === false ||
+                passwordRegex.test(financeManager.password) === false ||
+                regex.test(employee.email) === false ||
+                regex.test(accountant.email) === false ||
+                regex.test(financeManager.email) === false
               }
               onClick={login}
             />
             <label className="loginError">{loginError}</label>
             <div className="registerHere">
               <p>Not Registered Yet?</p>
-              <Link path to = "/Register" className="regLink">Register Here</Link>
+              <Link path to="/Register" className="regLink">
+                Register Here
+              </Link>
             </div>
           </form>
         </div>
         <div className="loginIllustration">
-          <img src={LoginIllustration} alt="loginIllustration"/>
+          <img src={LoginIllustration} alt="loginIllustration" />
         </div>
       </div>
     </>
