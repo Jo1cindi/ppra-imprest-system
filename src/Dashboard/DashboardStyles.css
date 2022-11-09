@@ -112,7 +112,7 @@ body{
 }
 .accmenuItem{
   width: 100%;
-  height: 10%;
+  height: 15%;
   list-style: none;
 }
 .totalNotifications{
@@ -1250,3 +1250,92 @@ body{
   margin-top: 10px;
 }
 
+
+/* Petty Cash Records */
+.pettyCash{
+  position: absolute;
+  width: 82vw;
+  height: 100vh;
+  left: 18%;
+  background-color: palegoldenrod;
+}
+.pettyCash h3{
+  margin-left: 2rem;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.setInitialAmount{
+  margin-left: 2rem;
+  width: 220px;
+  height: 50px;
+  background-color: #000000;
+  margin-top: 10px;
+  display: flex;
+  color:#F5F7D9;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.setInitialAmount p{
+  margin-top: 15px;
+  font-family: Karla, sans-serif;
+}
+.addIcon{
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.initialAmountWindow{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0, 0.5);
+  filter: blur();
+  -webkit-filter: blur();
+  position: absolute;
+  right: 0vw;
+  z-index: 99;
+}
+.initialAmountCard{
+  width: 40%;
+  height: 50%;
+  background-color: #F5F7D9;
+  margin-top: 5%;
+  margin-left: 30%;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+}
+.initialAmountCard h4{
+  margin-left: 2rem;
+  font-family: Lato, sans-serif;
+  font-size: 18px;
+  padding-top: 15px;
+}
+.amountInput{
+  width: 328px;
+  height: 52px;
+  margin-left: 2rem;
+  margin-top: 20px;
+}
+.amountInputField .MuiOutlinedInput-root{
+  width: 328px;
+  height: 52px;
+  border-radius: 10px;
+  font-family: Karla, sans-serif;
+  background: none;
+  color: #000000;
+}
+.setAmountBtn{
+  width: 328px;
+  height: 52px;
+  background-color: #630000;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #F5F7D9;
+  font-family: Karla, sans-serif;
+  outline: none;
+  border: none;
+  margin-top: 30px;
+  margin-left: 2rem;
+}
