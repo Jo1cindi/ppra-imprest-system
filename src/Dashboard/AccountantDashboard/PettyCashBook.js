@@ -33,7 +33,7 @@ const PettyCashBook = () => {
   const setInitialAmount = () => {
     axios({
       method: "post",
-      url: "http://localhost/3006/api/initial-amount",
+      url: "http://localhost:3006/api/initial-amount",
       data: {
         initialAmount: amount,
         month: month,
