@@ -88,7 +88,8 @@ const AccountantDashboard = () => {
         accountantId: localStorage.getItem("accountantId"),
         date: dateAllocated.toDateString(),
         allocationStatus: fundsAllocationStatus
-      }
+      },
+      headers:{ "Content-Type": "application/json" }
     }).then((response)=>{
       console.log(response)
       if(response.status === 200){
