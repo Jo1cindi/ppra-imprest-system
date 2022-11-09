@@ -1344,3 +1344,15 @@ body{
   background-color: #D8B6A4;
   color: #F5F7D9;
 }
+.amountError{
+  margin-left: 2rem;
+  margin-top: 15px;
+  font-family: Karla, sans-serif;
+  color: red;
+}
+.amountSuccess{
+  margin-left: 2rem;
+  margin-top: 15px;
+  font-family: Karla, sans-serif;
+  color: green;
+}

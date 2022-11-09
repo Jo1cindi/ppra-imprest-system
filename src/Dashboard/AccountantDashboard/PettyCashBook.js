@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "../DashboardStyles.css";
 import AccountantSidebar from "../../Components/AccountantSidebar";
 import { IoAdd, IoCloseSharp } from "react-icons/io5";
@@ -8,7 +9,8 @@ import axios from "axios";
 const PettyCashBook = () => {
   const [initialAmountWindow, setInitialAmountWindow] = useState(false);
   const [amount, setAmount] = useState("");
-  
+  const [amountError, setAmountError] = useState("")
+  const [amountSuccess, setAmountSuccess] = useState("")
 
 
   //Getting Date and year
@@ -33,7 +35,7 @@ const PettyCashBook = () => {
   const setInitialAmount = () => {
     axios({
       method: "post",
-      url: "http://localhost:3006/api/initial-amount",
+      url: "https://ppra-api.herokuapp.com/api/set-initial-amount",
       data: {
         initialAmount: amount,
         month: month,
@@ -42,9 +44,15 @@ const PettyCashBook = () => {
       },
       headers:{ "Content-Type": "application/json" }
     }).then((response)=>{
-      console.log(response)
+      console.log(response.status)
+      if(response.status === 200){
+        setAmountSuccess("Intial Amount Set Successfully!")
+      }
     }).catch((error)=>{
       console.log(error)
+      if(error.response.status === 409){
+        setAmountError("Initial amount for the month has already been set!")
+      }
     })
   };
 
@@ -81,9 +89,11 @@ const PettyCashBook = () => {
               type="submit"
               value="Set Amount"
               className="setAmountBtn"
-              onClick={setInitialAmount()}
-              disabled={!amount}
+              onClick={setInitialAmount}
+              disabled={!amount || regex.test(amount)=== false}
             />
+            <p className="amountError">{amountError}</p>
+            <p className="amountSuccess">{amountSuccess}</p>
           </div>
         </div>
       )}
