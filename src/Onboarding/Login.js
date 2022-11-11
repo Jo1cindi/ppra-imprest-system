@@ -321,11 +321,18 @@ const Login = () => {
               onClick={login}
             />
             <label className="loginError">{loginError}</label>
+            <div className="otherLinks">
             <div className="registerHere">
               <p>Not Registered Yet?</p>
               <Link path to="/Register" className="regLink">
                 Register Here
               </Link>
+            </div>
+          <div className="adminLoginLink">
+            <Link path to="/Admin-Login" className="adminLink">
+                Login as Admin
+            </Link>
+            </div>
             </div>
           </form>
         </div>
