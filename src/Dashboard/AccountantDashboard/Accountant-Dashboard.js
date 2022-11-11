@@ -19,6 +19,9 @@ const AccountantDashboard = () => {
   const [requestId, setRequestId] = useState()
   const[allocationSuccess, setAllocationSuccess] = useState("")
   const fundsAllocationStatus = "allocated"
+  const currentDate = new Date();
+  const month = Number(currentDate.getMonth() + 1);
+  const year = Number(currentDate.getFullYear())
   
 
   //Getting approved requests from database
@@ -87,7 +90,9 @@ const AccountantDashboard = () => {
         requestId: requestId,
         accountantId: localStorage.getItem("accountantId"),
         date: dateAllocated.toDateString(),
-        allocationStatus: fundsAllocationStatus
+        allocationStatus: fundsAllocationStatus,
+        month: month,
+        year: year, 
       },
       headers:{ "Content-Type": "application/json" }
     }).then((response)=>{

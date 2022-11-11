@@ -1257,7 +1257,7 @@ body{
   width: 82vw;
   height: 100vh;
   left: 18%;
-  background-color: palegoldenrod;
+  overflow-x: hidden;
 }
 .pettyCash h3{
   margin-left: 2rem;
@@ -1286,6 +1286,203 @@ body{
   margin-right: 10px;
   font-size: 20px;
   font-weight: bold;
+}
+.transactions{
+  width: 100%;
+  height: 20%;
+  margin-top: 20px;
+  display: flex;
+}
+.initialAmount{
+  width: 15%;
+  height: 100%;
+  background-color: #EEEBDD;
+  border-radius: 10px;
+  margin-left: 2rem;
+}
+.monthly{
+  width: 15%;
+  height: 100%;
+  background-color: #D8B6A4;
+  color: #000000;
+  border-radius: 10px;
+  margin-left: 1rem;
+}
+.balance{
+  width: 15%;
+  height: 100%;
+  background-color: #630000;
+  color: #F5F7D9;
+  border-radius: 10px;
+  margin-left: 1rem;
+}
+.yearly{
+  width: 15%;
+  height: 100%;
+  background-color: #EEEBDD;
+  border-radius: 10px;
+  margin-left: 1rem;
+}
+.initialAmount .transactionTitle{
+  color: rgba(0, 0, 0, 0.6);
+}
+.monthly .transactionTitle{
+  color: rgba(0, 0, 0, 0.6);
+}
+.balance .transactionTitle{
+  color: rgba(245, 247, 217, 0.7);
+}
+.yearly .transactionAmount{
+  margin-top: 25px;
+}
+.yearly .transactionTitle{
+  color: rgba(0, 0, 0, 0.6);
+}
+.transactionTitle{
+  font-family: Lato, sans-serif;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-justify: auto;
+}
+.transactionAmount{
+  font-family: Karla, sans-serif;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-justify: auto;
+  font-weight: bolder;
+  font-size: 24px;
+}
+.filterMonthly{
+  width: 80%;
+  height: 12%;
+  background-color: #EEEBDD;
+  margin-left: 2rem;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: flex;
+}
+.filterMonthly p{
+  margin-top: 27px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Karla, sans-serif;
+}
+.months{
+  width: 328px;
+  height: 52px;
+  margin-top: 15px;
+  background-color: #F5F7D9;
+  border: none;
+  outline: none;
+}
+.pettyCashBook{
+  width: 80%;
+  margin-left: 2rem;
+  background-color: #EEEBDD;
+  border-radius: 10px;
+  height: 600px;
+  margin-bottom: 20px;
+}
+.pettyCashBook h3{
+  padding-top: 10px;
+  width: 80%;
+  height: 20px;
+}
+.tableTitle{
+  font-weight: bold;
+  font-family: Lato, sans-serif;
+  background-color: #F5F7D9;
+  height: 10%;
+}
+.tableTitle p{
+  padding-top: 10px;
+}
+.pettyCashBook ul{
+  margin-top: 20px;
+  width: 100%;
+  height: 80%;
+  display: flex;
+}
+.pettyCashBook ul li{
+  list-style: none;
+  font-size: 16px;
+  font-family: Lato, sans-serif;
+  width: 100%;
+}
+.initialAmountColumn{
+  width: 20%;
+  background-color: #EEEBDD;
+  height: 100%;
+}
+.initialAmountColumn p{
+  margin-left: 10px;
+  font-family: Karla, sans-serif;
+}
+.yearColumn{
+  width: 20%;
+  background-color: #D8B6A4;
+  height: 100%;
+}
+.yearColumn p{
+  padding-left: 10px;
+  font-family: Karla, sans-serif;
+}
+.monthColumn{
+  width: 20%;
+  background-color: #EEEBDD;
+}
+.monthColumn p{
+  padding-left: 10px;
+  font-family: Karla, sans-serif;
+}
+.detailsColumn{
+  width: 20%;
+  background-color: #D8B6A4;
+}
+.detailsColumn p{
+  padding-left: 10px;
+  font-family: Karla, sans-serif;
+}
+.totalColumn{
+  width: 20%;
+  background-color: #EEEBDD
+}
+.totalColumn p{
+  padding-left: 10px;
+  font-family: Karla, sans-serif;
+}
+.spacing{
+  height: 18px;
+}
+.trademark{
+  width: 100%;
+  height: 10%;
+  background-color: #F5F7D9;
+  display: flex;
+}
+.trademark img{
+  width: 100px;
+  height: 40px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+.line1{
+  width: 40%;
+  height: 1px;
+  background-color: #630000;
+  margin-left: 20px;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+.line2{
+  width: 40%;
+  height: 1px;
+  background-color: #630000;
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-left: 20px;
 }
 .initialAmountWindow{
   width: 100vw;
@@ -1355,4 +1552,22 @@ body{
   margin-top: 15px;
   font-family: Karla, sans-serif;
   color: green;
+}
+.downloadReport{
+  width: 328px;
+  height: 52px;
+  margin-bottom: 20px;
+  margin-left: 2rem;
+}
+.downloadReport input{
+  width: 100%;
+  height: 100%;
+  background-color: #630000;
+  color: #F5F7D9;
+  font-family: Karla, sans-serif;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
 }
