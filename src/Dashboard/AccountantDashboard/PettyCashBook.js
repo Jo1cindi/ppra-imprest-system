@@ -4,6 +4,8 @@ import AccountantSidebar from "../../Components/AccountantSidebar";
 import { IoAdd, IoCloseSharp } from "react-icons/io5";
 import logoImage from "../../Images/logoDark.png";
 import jsPDF from "jspdf";
+import Animation from "../../Images/norecord.json";
+import Lottie from "react-lottie-player";
 import html2canvas from "html2canvas";
 import { TextField, Select, FormControl, MenuItem } from "@mui/material";
 import axios from "axios";
@@ -242,8 +244,8 @@ const PettyCashBook = () => {
                   const imgWidth = 210;
                   const imgHeight = (canvas.height * imgWidth) / canvas.width;
                   const imgData = canvas.toDataURL("img/png");
-                  const receiptPdf = new jsPDF("p", "mm", "a4");
-                  receiptPdf.addImage(
+                  const pettyCashPdf = new jsPDF("p", "mm", "a4");
+                  pettyCashPdf.addImage(
                     imgData,
                     "PNG",
                     0,
@@ -251,7 +253,7 @@ const PettyCashBook = () => {
                     imgWidth,
                     imgHeight
                   );
-                  receiptPdf.save("pettycashreport.pdf");
+                  pettyCashPdf.save("pettycashreport.pdf");
                 });
               }}
             />
@@ -259,7 +261,16 @@ const PettyCashBook = () => {
         </>
       );
     } else if (fundAllocations.length === 0) {
-      return <div>Empty</div>;
+      return (
+        <>
+          <div className="emptyRecords">
+          <h5>No records for {monthValue}</h5>
+           <div className="recordsAnimation">
+            <Lottie loop animationData={Animation} play />
+           </div>
+          </div>
+        </>
+      )
     }
   };
 
