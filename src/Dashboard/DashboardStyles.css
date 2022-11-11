@@ -1597,3 +1597,76 @@ body{
   text-transform: uppercase;
   font-family: Lato, sans-serif;
 }
+
+/* Admin Dashboard */
+.adminDashboard{
+  position: absolute;
+  width: 82vw;
+  height: 100vh;
+  left: 18%;
+  overflow-x: hidden;
+}
+.adminDashboard h3{
+  text-align: center;
+  margin-top: 20px;
+  font-family: Lato, sans-serif;
+  font-weight: 30px;
+  margin-bottom: 20px;
+}
+.adminAvatars{
+  width: 22%;
+  margin-left: 39%;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Karla, sans-serif;
+}
+.UserRegistrationForm{
+  width: 30%;
+  margin-left: 35%;
+  margin-bottom: 5%;
+}
+
+/* Remove User */
+.removeUsers{
+  position: absolute;
+  width: 82vw;
+  height: 100vh;
+  left: 18%;
+  overflow-x: hidden;
+}
+.removeUsers h3{
+  text-align: center;
+  margin-top: 20px;
+  font-family: Lato, sans-serif;
+  font-weight: 30px;
+  margin-bottom: 20px;
+}
+.removeAvatars{
+  width: 40%;
+  margin-left: 30%;
+  display: flex;
+  justify-content: space-between;
+  font-family: Karla, sans-serif;
+  margin-bottom: 5%;
+}
+.removeUserForm{
+  width: 350px;
+  margin: auto;
+}
+
+/* Users */
+.allUsers{
+  position: absolute;
+  width: 82vw;
+  height: 100vh;
+  left: 18%;
+  overflow-x: hidden;
+}
+.allUsers h3{
+  margin-left: 2rem;
+  margin-top: 10px;
+  font-family: Lato, sans-serif;
+  font-weight: 30px;
+  margin-bottom: 5px;
+}

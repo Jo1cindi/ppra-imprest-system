@@ -14,7 +14,8 @@ import History from './Dashboard/Finance Manager Dashboard/History';
 import PettyCashBook from './Dashboard/AccountantDashboard/PettyCashBook';
 import AdminLogin from './Onboarding/Admin-Login';
 import AdminDashboard from './Dashboard/AdminDashboard/AdminDashboard';
-
+import AllUsers from './Dashboard/AdminDashboard/AllUsers';
+import RemoveUsers from './Dashboard/AdminDashboard/RemoveUsers';
 
 
 const PPRAImprest = () => {
@@ -38,6 +39,8 @@ const PPRAImprest = () => {
       <Route path="/PettyCashBook" exact element={ <PettyCashBook/>} />
       <Route path="/Admin-Login" exact element={ <AdminLogin/>} />
       <Route path="/Admin-Dashboard" exact element={ <AdminDashboard/>} />
+      <Route path="/All-Users" exact element={ <AllUsers/>} />
+      <Route path="/Remove-User" exact element={ <RemoveUsers/>} />
       </Routes>
      </Router>
     </div>
