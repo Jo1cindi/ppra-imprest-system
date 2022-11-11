@@ -15,6 +15,8 @@ const FinanceManagerDashboard = () => {
   const [date, setDate] = useState()
   const [orderedRequests, setOrderedRequests] = useState("")
   const [numberOfRequests, setNumberOfRequest] = useState("")
+  const [approvalNotification, setApprovalNotification] = useState("")
+  const [denialNotification, setDenialNotification] = useState("")
   const approved = "approved"
   const denied = "denied"
  
@@ -29,7 +31,6 @@ const FinanceManagerDashboard = () => {
         if (response.status === 200) {
           setReceivedRequests(response.data);
           console.log(response);
-          console.log(response.data);
         }
         setLoading(true);
       })
@@ -85,6 +86,7 @@ const FinanceManagerDashboard = () => {
       headers: {"Content-Type": "application/json"}
     }).then((response)=>{
        console.log(response)
+       setApprovalNotification("Approved!!")
     }).catch((error)=>{
       console.log(error)
     })
@@ -100,6 +102,7 @@ const FinanceManagerDashboard = () => {
       headers: {"Content-Type": "application/json"}
     }).then((response)=>{
       console.log(response)
+      setDenialNotification("Denied!!")
     }).catch((error)=>{
       console.log(error)
     })
@@ -134,7 +137,7 @@ const FinanceManagerDashboard = () => {
                   <h5>Reason for Request:</h5>
                   <p>{requestDetails.reason}</p>
                   </div>
-                  <div className="dateOfRequest">
+                  <div className="dateRequestSent">
                   <h5>Requested on:</h5>
                   <p>{date}</p>
                   </div>
@@ -143,6 +146,8 @@ const FinanceManagerDashboard = () => {
                   <input type="submit" value="Deny Request" className="denyBtn" onClick={denyRequest}/>
                   <input type="submit" value="Approve Request" className="approveBtn" onClick={approveRequest}/>
                 </div>
+                <p className="approveNotif">{approvalNotification}</p>
+                <p className="denyNotif">{denialNotification}</p>
               </div>
             </div>
           )}

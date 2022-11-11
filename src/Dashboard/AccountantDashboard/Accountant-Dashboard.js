@@ -22,6 +22,7 @@ const AccountantDashboard = () => {
   const currentDate = new Date();
   const month = Number(currentDate.getMonth() + 1);
   const year = Number(currentDate.getFullYear())
+  console.log(year)
   
 
   //Getting approved requests from database

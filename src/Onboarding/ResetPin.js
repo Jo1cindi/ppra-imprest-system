@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Logo from "../Components/Logo";
-import { TextField } from "@mui/material";
+import { TextField, InputAdornment, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import axios from "axios";
 
 const ResetPin = () => {
@@ -18,6 +19,19 @@ const ResetPin = () => {
   };
 
   const user = localStorage.getItem("user");
+
+  //Regex testing for password
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword);
+  let passwordRegexError = "";
+  const passwordRegex =
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/;
+  if (passwordRegex.test(data.password) === true || !data.password) {
+    passwordRegexError = "strong password";
+  } else {
+    passwordRegexError = "weak password";
+  }
 
   let passwordError = "";
   if (data.password !== confirmPassword) {
@@ -42,19 +56,21 @@ const ResetPin = () => {
 
   //Reset Password Function
   const reset = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (user === "employee") {
       axios({
         method: "put",
         url: "https://ppra-api.herokuapp.com/api/employee-reset",
         data: data,
-        headers: {"Content-Type": "application/json"}
-      }).then((response)=>{
-        navigate("/Login");
-        console.log(response)
-      }).catch((error)=>{
-        console.log(error)
+        headers: { "Content-Type": "application/json" },
       })
+        .then((response) => {
+          navigate("/Login");
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
 
     if (user === "accountant") {
@@ -62,13 +78,15 @@ const ResetPin = () => {
         method: "put",
         url: "https://ppra-api.herokuapp.com/api/accountant-reset",
         data: data,
-        headers: {"Content-Type": "application/json"}
-      }).then((response)=>{
-        navigate("/Login");
-        console.log(response)
-      }).catch((error)=>{
-        console.log(error)
+        headers: { "Content-Type": "application/json" },
       })
+        .then((response) => {
+          navigate("/Login");
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
 
     if (user === "finance manager") {
@@ -76,16 +94,17 @@ const ResetPin = () => {
         method: "put",
         url: "https://ppra-api.herokuapp.com/api/financemanager-reset",
         data: data,
-        headers: {"Content-Type": "application/json"}
-      }).then((response)=>{
-        navigate("/Login");
-        console.log(response)
-      }).catch((error)=>{
-        console.log(error)
+        headers: { "Content-Type": "application/json" },
       })
+        .then((response) => {
+          navigate("/Login");
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
 
-    
     console.log(user);
   };
 
@@ -118,7 +137,26 @@ const ResetPin = () => {
                 name="password"
                 value={data.password}
                 onChange={handleChange}
-                type="password"
+                InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+                helperText={passwordRegexError}
+                FormHelperTextProps={
+                  passwordRegex.test(data.password) === false
+                    ? { style: { color: "red" } }
+                    : { style: { color: "green" } }
+                }
+                type={showPassword ? "text" : "password"}
                 margin="normal"
                 required
               />
@@ -128,13 +166,26 @@ const ResetPin = () => {
                 name="confirmPassword"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
                 helperText={passwordError}
                 FormHelperTextProps={
                   data.password !== confirmPassword
                     ? { style: { color: "red" } }
                     : { style: { color: "green" } }
                 }
-                type="password"
+                type={showPassword ? "text" : "password"}
                 margin="normal"
                 required
               />
@@ -146,7 +197,8 @@ const ResetPin = () => {
                   !data.password ||
                   !confirmPassword ||
                   !data.email ||
-                  regex.test(data.email) === false
+                  regex.test(data.email) === false ||
+                  passwordRegex.test(data.password) === false
                 }
                 onClick={reset}
               />

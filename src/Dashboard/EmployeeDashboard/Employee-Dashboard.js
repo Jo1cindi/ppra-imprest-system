@@ -12,11 +12,8 @@ import {
   InputLabel,
   FormControl,
   MenuItem,
-  
 } from "@mui/material";
 import axios from "axios";
-
-
 
 const EmployeeDashboard = () => {
   //Opening and closing the form
@@ -31,23 +28,22 @@ const EmployeeDashboard = () => {
   //Setting time value
   const [startDate, setStartDate] = useState(new Date());
   let date = new Date();
-  let hr = date.getHours()
-  let min = date.getMinutes()
-  if(min < 10){
-    min = "0"+ min.toString()
+  let hr = date.getHours();
+  let min = date.getMinutes();
+  if (min < 10) {
+    min = "0" + min.toString();
   }
-  let amPm = ""
-  if(hr > 12){
-    hr -= 12
-    amPm = "PM"
-  }else if( hr - 12 === 12){
-    amPm = "AM"
-  }else{
-    amPm = "AM"
+  let amPm = "";
+  if (hr > 12) {
+    hr -= 12;
+    amPm = "PM";
+  } else if (hr - 12 === 12) {
+    amPm = "AM";
+  } else {
+    amPm = "AM";
   }
 
-  const time = hr + ":" + min + " " + amPm
-  
+  const time = hr + ":" + min + " " + amPm;
 
   //Form data
   const [formData, setFormData] = useState({
@@ -68,14 +64,36 @@ const EmployeeDashboard = () => {
     });
   };
 
-//Error if amount is more or less than the minimum set amount
-let amountError = ""
-if(formData.amount === 1  ){
-  amountError = "Enter an amount between kes 1 and kes 50,000"
-}else if(formData.amount.length === 0){
-  amountError = ""
-}
-//Error if email address is incorrect
+  //Name Regex Test
+  //FirstName
+  let nameError = "";
+  const nameRegex = /^[a-z]+$/i;
+  if (nameRegex.test(formData.firstName) === true || !formData.firstName) {
+    nameError = "";
+  } else {
+    nameError = "Numbers or special characters not allowed";
+  }
+
+  //lastName
+  let lastNameError = "";
+  if (nameRegex.test(formData.lastName) === true || !formData.lastName) {
+    lastNameError = "";
+  } else {
+    lastNameError = "Numbers or special characters not allowed";
+  }
+
+  //Error if amount is more or less than the minimum set amount
+  const amountRegex = /^\d+$/;
+  let amountError = "";
+  if (formData.amount === 0 || formData.amount > 50000) {
+    amountError = "Enter an amount between kes 1 and kes 50,000";
+  } else if (!formData.amount) {
+    amountError = "";
+  } else if (amountRegex.test(formData.amount) === false) {
+    amountError = "Only enter numerical digits";
+  }
+
+  //Error if email address is incorrect
   let emailError = "";
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (regex.test(formData.email) === false) {
@@ -95,12 +113,12 @@ if(formData.amount === 1  ){
     "Internal Audit",
     "Human Resources",
   ];
-  
+
   //Sending request error
-  const [requestError, setRequestError]= useState("");
+  const [requestError, setRequestError] = useState("");
 
   //Sent confirmation
-  const [confirmation, setConfirmation] = useState("")
+  const [confirmation, setConfirmation] = useState("");
 
   //Send request Function
   const sendRequest = (e) => {
@@ -109,22 +127,24 @@ if(formData.amount === 1  ){
       method: "post",
       url: "https://ppra-api.herokuapp.com/api/send-request",
       data: formData,
-      headers: { "Content-Type": "application/json" }
-    }).then((response)=>{
-      if(response.status === 200){
-        setConfirmation("Request sent succesfully!!")
-      }
-      console.log(response.status)
-      console.log(response)
-    }).catch((error)=>{
-      if(error.response.status === 401){
-        setRequestError("Please use the correct email address")
-      }
-      console.log(error)
+      headers: { "Content-Type": "application/json" },
     })
+      .then((response) => {
+        if (response.status === 200) {
+          setConfirmation("Request sent succesfully!!");
+        }
+        console.log(response.status);
+        console.log(response);
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          setRequestError("Please use the correct email address");
+        }
+        console.log(error);
+      });
     console.log(formData);
-    console.log(time)
-    console.log(hr)
+    console.log(time);
+    console.log(hr);
   };
 
   return (
@@ -145,6 +165,8 @@ if(formData.amount === 1  ){
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
+                  helperText={nameError}
+                  FormHelperTextProps={{ style: { color: "red" } }}
                   margin="normal"
                   variant="outlined"
                 />
@@ -154,6 +176,8 @@ if(formData.amount === 1  ){
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
+                  helperText={lastNameError}
+                  FormHelperTextProps={{ style: { color: "red" } }}
                   margin="normal"
                   variant="outlined"
                 />
@@ -202,7 +226,12 @@ if(formData.amount === 1  ){
               </div>
               <div className="dateandAmount">
                 <div className="dateInput">
-                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}format = "y-MM-dd h:mm" className="dateField"/>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    format="y-MM-dd h:mm"
+                    className="dateField"
+                  />
                 </div>
                 <TextField
                   className="requestField"
@@ -211,7 +240,7 @@ if(formData.amount === 1  ){
                   value={formData.amount}
                   onChange={handleChange}
                   helperText={amountError}
-                  FormHelperTextProps={{style: {color: "red"}}}
+                  FormHelperTextProps={{ style: { color: "red" } }}
                   margin="normal"
                   variant="outlined"
                 />
@@ -241,7 +270,12 @@ if(formData.amount === 1  ){
                     !formData.date ||
                     !formData.amount ||
                     !formData.reasonForRequest ||
-                    regex.test(formData.email) === false
+                    nameRegex.test(formData.firstName) === false ||
+                    nameRegex.test(formData.lastName) === false ||
+                    regex.test(formData.email) === false ||
+                    amountRegex.test(formData.amount) === false ||
+                    formData.amount === 0 || 
+                    formData.amount > 50000
                   }
                 />
               </div>
@@ -266,7 +300,7 @@ if(formData.amount === 1  ){
               Request for funds by filling in the Imprest Requisition Form
             </p>
             <p>To fill in the form click the button below</p>
-            <input type="submit" value="Request" onClick={toggleRequestForm}  />
+            <input type="submit" value="Request" onClick={toggleRequestForm} />
           </div>
         </div>
       </div>

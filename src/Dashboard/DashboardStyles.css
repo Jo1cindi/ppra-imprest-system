@@ -929,7 +929,7 @@ body{
 .requestDetailsCard{
   position: absolute;
   width: 40%;
-  height: 70%;
+  height: 75%;
   background-color: #F5F7D9;
   border-radius: 10px;
   left: 30%;
@@ -1038,7 +1038,7 @@ body{
   font-size: 14px;
   margin-top: 5px;
 }
-.dateOfRequest{
+.dateRequestSent{
   width: 90%;
   height: 5%;
   display: flex;
@@ -1087,6 +1087,16 @@ body{
   outline: none;
   border: none;
   border-radius: 10px;
+}
+.approveNotif{
+  margin-left: 60%;
+  margin-right: 10%;
+  color: green;
+}
+.denyNotif{
+  margin-left: 60%;
+  margin-right: 10%;
+  color: red;
 }
 
 /* Finance Manager History */
