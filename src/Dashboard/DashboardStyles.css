@@ -1670,3 +1670,115 @@ body{
   font-weight: 30px;
   margin-bottom: 5px;
 }
+.employeeList{
+  margin-left: 2rem;
+  width: 80%;
+  margin-top: 20px;
+}
+.employeeList ul{
+  width: 100%;
+  display: flex;
+}
+.employeeList ul li{
+  width: 25%;
+  list-style: none;
+}
+.employeeTableTitles{
+  height: 40px;
+  width: 100%;
+  background-color: #630000;
+  color: #F5F7D9;
+  font-family: Lato, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+.employeeTableTitles p{
+  margin-left: 10px;
+  padding-top: 10px;
+}
+.employeesFirstName{
+  width: 100%;
+  background-color: #D8B6A4;
+  font-family: Karla, sans-serif;
+}
+.employeesFirstName p{
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.employeesLastName{
+  width: 100%;
+  background-color: #EEEBDD;
+  font-family: Karla, sans-serif;
+}
+.employeesLastName p{
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.employeesDepartment{
+  width: 100%;
+  background-color: #D8B6A4;
+  font-family: Karla, sans-serif;
+}
+.employeesDepartment p{
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.employeesEmail{
+  width: 100%;
+  background-color: #EEEBDD;
+  font-family: Karla, sans-serif;
+}
+.employeesEmail p{
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.accountantList{
+  margin-left: 2rem;
+  width: 80%;
+  height: 100px;
+  margin-top: 20px;
+}
+.accountantList ul{
+  width: 96%;
+  display: flex;
+}
+.accountantList ul li{
+  width: 32%;
+  list-style: none;
+}
+.accountantFirstName{
+  width: 100%;
+  background-color: #EEEBDD;
+  font-family: Karla, sans-serif;
+}
+.accountantFirstName p{
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.accountantLastName{
+  width: 100%;
+  background-color: #D8B6A4;
+  font-family: Karla, sans-serif;
+}
+.accountantLastName p{
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.accountantEmail{
+  width: 100%;
+  background-color: #EEEBDD;
+  font-family: Karla, sans-serif;
+}
+.accountantEmail p{
+  margin-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+

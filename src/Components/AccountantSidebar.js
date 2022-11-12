@@ -15,7 +15,7 @@ const name = userName.firstName + ' ' + userName.lastName
 useEffect(()=>{
   axios({
     method: "post",
-    url: "https://ppra-api.herokuapp.com/api/accountant-data",
+    url: "https://ppra-api.herokuapp.com/api/user-data",
     data: {email: localStorage.getItem("email")},
     headers: { "Content-Type": "application/json" }
   }).then((response)=>{
