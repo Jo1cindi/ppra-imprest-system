@@ -19,6 +19,7 @@ const AccountantDashboard = () => {
   const [requestId, setRequestId] = useState()
   const[allocationSuccess, setAllocationSuccess] = useState("")
   const fundsAllocationStatus = "allocated"
+  const [disableAllocateBtn, setDisableAllocateBtn] = useState(false)
   const currentDate = new Date();
   const month = Number(currentDate.getMonth() + 1);
   const year = Number(currentDate.getFullYear())
@@ -100,6 +101,7 @@ const AccountantDashboard = () => {
       console.log(response)
       if(response.status === 200){
         setAllocationSuccess("The funds have been sent successfully!")
+        setDisableAllocateBtn(true)
       }
     }).catch((error)=>{
       console.log(error)
@@ -126,7 +128,7 @@ const AccountantDashboard = () => {
                  <div className="amount2">KES {amount}.00</div>
                  <div className="date2"><p>Request sent on: {date}</p></div>
                 </div>
-                <input type="submit" value="Allocate Funds" onClick={allocateFunds}/>
+                <input type="submit" value="Allocate Funds" onClick={allocateFunds} disabled={disableAllocateBtn}/>
                 <p className="allocationSuccess">{allocationSuccess}</p>
               </div>
               </div>

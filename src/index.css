@@ -325,7 +325,13 @@ body{
 .regError{
   color: red;
   font-family: Karla, sans-serif;
-  padding-top: 10px;
+  padding-top: 20px;
+  font-size: 14px;
+}
+.regSuccess{
+  color: green;
+  font-family: Karla, sans-serif;
+  padding-top: 20px;
   font-size: 14px;
 }
 

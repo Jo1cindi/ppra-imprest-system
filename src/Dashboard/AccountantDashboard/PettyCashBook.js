@@ -172,56 +172,63 @@ const PettyCashBook = () => {
                 <div className="tableTitle">
                   <p>Initial Amount</p>
                 </div>
-                <p className="spacing">{""}</p>
+                <div className="monthlyDetails">
                 <p>{transactionData.initialAmount}</p>
+                </div>
               </li>
               <li className="yearColumn">
                 <div className="tableTitle">
                   <p>Year</p>
                 </div>
-                <p className="spacing">{""}</p>
+                <div className="monthlyDetails">
                 <p>{year}</p>
+                </div>
               </li>
               <li className="monthColumn">
                 <div className="tableTitle">
                   <p>Date</p>
                 </div>
-                <p className="spacing">{""}</p>
-                <p className="monthRow">{monthName}</p>
-                <p className="spacing">{""}</p>
+                <div className="monthlyDetails">
+                <p>{monthName}</p>
+                </div>
                 {fundAllocations.map((fundAllocated, index) => (
-                  <p key={index}>{fundAllocated.date}</p>
+                  <div className="monthlyReports" key={index}>
+                  <p>{fundAllocated.date}</p>
+                  </div>
                 ))}
               </li>
               <li className="detailsColumn">
                 <div className="tableTitle">
                   <p>Details</p>
                 </div>
-                <p className="spacing">{""}</p>
+                <div className="monthlyDetails">
                 <p>Bank Account</p>
-                <p className="spacing">{""}</p>
+                </div>
                 {fundAllocations.map((fundAllocated, index) => (
-                  <p key={index}>{fundAllocated.reason}</p>
+                  <div className="monthlyReports" key={index}>
+                  <p>{fundAllocated.reason}</p>
+                  </div>
                 ))}
-                <p className="spacing">{""}</p>
-                <p>Total</p>
-                <p className="spacing">{""}</p>
+                <div className="totals">
+                  <p>Total</p>
                 <p>Balance c/d</p>
+                </div>
               </li>
               <li className="totalColumn">
                 <div className="tableTitle">
                   <p>Total Amount Paid</p>
                 </div>
-                <p className="spacing">{""}</p>
-                <p className="spacing">{""}</p>
-                <p className="spacing">{""}</p>
+                <div className="monthlyDetails">
+                </div>
                 {fundAllocations.map((fundAllocated, index) => (
-                  <p key={index}>{fundAllocated.amount}</p>
+                  <div className="monthlyReports" key={index}>
+                  <p>{fundAllocated.amount}</p>
+                  </div>
                 ))}
-                <p className="spacing">{""}</p>
+                <div className="totals">
                 <p>{transactionData.totalAmountAllocated}</p>
-                <p className="spacing">{""}</p>
                 <p>{transactionData.balance}</p>
+                </div>
               </li>
             </ul>
             <div className="trademark">

@@ -1,76 +1,40 @@
 import React, {useState} from 'react'
-import { FaUserTie } from "react-icons/fa";
 import AdminSidebar from '../../Components/AdminSidebar';
 import { TextField } from "@mui/material";
+import axios from "axios";
 
 const RemoveUsers = () => {
-
-  //Avatars
-  const avatarArray = [
-    {
-      id: 1,
-      avatar: <FaUserTie />,
-      name: "Employee",
-    },
-    {
-      id: 2,
-      avatar: <FaUserTie />,
-      name: "Accountant",
-    },
-    {
-      id: 3,
-      avatar: <FaUserTie />,
-      name: "Finance Manager",
-    },
-  ];
-   //Highlight avatars when clicked when clicked
-   const [activeAvatar, setActiveAvatar] = useState(avatarArray[0].id);
-
-
-   //Employee
-  const [employee, setEmployee] = useState({
-    email: ""
-  });
-
-  //Accountant
-  const [accountant, setAccountant] = useState({
-    email: ""
-  });
-
-  //Finance Manager
-  const [financeManager, setFinancManager] = useState({
-    email: ""
-  });
-
-  const handleChange = (e) => {
-    setEmployee({
-      ...employee,
-      [e.target.name]: e.target.value,
-    });
-    setAccountant({
-      ...accountant,
-      [e.target.name]: e.target.value,
-    });
-    setFinancManager({
-      ...financeManager,
-      [e.target.name]: e.target.value,
-    });
-  };
+ 
+  const [email, setEmail] = useState("")
+  const [success, setSuccess] = useState("")
 
   //Email
   let emailError = "";
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (
-    regex.test(employee.email) === false ||
-    regex.test(accountant.email) === false ||
-    regex.test(financeManager.email) === false
+    regex.test(email) === false 
   ) {
     emailError = "Please enter a valid email address";
   } else {
     emailError = "Email is valid";
   }
-  if (!employee.email || !accountant.email || !financeManager.email) {
+  if (email) {
     emailError = "";
+  }
+
+  //Remove user
+  const removeUser = () =>{
+    axios({
+      method: "post",
+      url: "https://ppra-api.herokuapp.com/api/remove-user",
+      data: {email: email},
+      headers: { "Content-Type": "application/json" }
+    }).then((response)=>{
+      console.log(response)
+      setSuccess("User Deleted Successfully")
+    }).catch((error)=>{
+      console.log(error)
+    })
   }
 
   return (
@@ -79,56 +43,18 @@ const RemoveUsers = () => {
         <AdminSidebar/>
         <div className='removeUsers'>
          <h3>Remove User</h3>
-        <div className='removeAvatars'>
-          {avatarArray.map((avatar) => (
-            <div
-              className={
-                activeAvatar === avatar.id ? "avatar" : "inactiveAvatar"
-              }
-              key={avatar.id}
-              onClick={() => {
-                setActiveAvatar(avatar.id);
-              }}
-            >
-              <div
-                className={
-                  activeAvatar === avatar.id
-                    ? "individualAvatar"
-                    : "inactiveIndividualAvatar"
-                }
-              >
-                {avatar.avatar}
-              </div>
-              <p
-                className={
-                  activeAvatar === avatar.id
-                    ? "positionDesc"
-                    : "inactivePositionDesc"
-                }
-              >
-                {avatar.name}
-              </p>
-            </div>
-          ))}
-        </div>
         <div className="removeUserForm">
            <TextField
               className="loginField"
               label="Enter User Email Address"
               name="email"
               value={
-                activeAvatar === avatarArray[0].id
-                  ? employee.email
-                  : activeAvatar === avatarArray[1].id
-                  ? accountant.email
-                  : financeManager.email
+                email
               }
-              onChange={handleChange}
+              onChange={(e)=> setEmail(e.target.value)}
               helperText={emailError}
               FormHelperTextProps={
-                regex.test(employee.email) === false ||
-                regex.test(accountant.email) === false ||
-                regex.test(financeManager.email) === false
+                regex.test(email) === false
                   ? { style: { color: "red" } }
                   : { style: { color: "green" } }
               }
@@ -141,19 +67,17 @@ const RemoveUsers = () => {
               value="Remove User"
               className="loginButton"
               disabled={
-                !employee.email ||
-                !financeManager.email ||
-                !accountant.email ||
-                regex.test(employee.email) === false ||
-                regex.test(accountant.email) === false ||
-                regex.test(financeManager.email) === false
+                !email ||
+                regex.test(email) === false
               }
+              onClick={removeUser()}
             />
          </div>
+         <p className="deletionSuccess">{success}</p>
         </div>
       </div>
     </>
   )
 }
 
-export default RemoveUsers
+export default RemoveUsers;

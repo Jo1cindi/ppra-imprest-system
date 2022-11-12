@@ -15,8 +15,8 @@ const FinanceManagerDashboard = () => {
   const [date, setDate] = useState()
   const [orderedRequests, setOrderedRequests] = useState("")
   const [numberOfRequests, setNumberOfRequest] = useState("")
-  const [approvalNotification, setApprovalNotification] = useState("")
-  const [denialNotification, setDenialNotification] = useState("")
+  const [disableApprovalBtn, setDisableApprovalBtn] = useState(false)
+  const [disableDenialBtn, setDisableDenialBtn] = useState(false)
   const approved = "approved"
   const denied = "denied"
  
@@ -86,7 +86,8 @@ const FinanceManagerDashboard = () => {
       headers: {"Content-Type": "application/json"}
     }).then((response)=>{
        console.log(response)
-       setApprovalNotification("Approved!!")
+       setDisableApprovalBtn(true)
+       setDisableDenialBtn(true)
     }).catch((error)=>{
       console.log(error)
     })
@@ -95,6 +96,8 @@ const FinanceManagerDashboard = () => {
 
   //Deny Requests
   const denyRequest = () =>{
+    setDisableDenialBtn(true)
+    setDisableApprovalBtn(true)
     axios({
       method: "put",
       url: "https://ppra-api.herokuapp.com/api/deny-request",
@@ -102,7 +105,6 @@ const FinanceManagerDashboard = () => {
       headers: {"Content-Type": "application/json"}
     }).then((response)=>{
       console.log(response)
-      setDenialNotification("Denied!!")
     }).catch((error)=>{
       console.log(error)
     })
@@ -129,11 +131,11 @@ const FinanceManagerDashboard = () => {
                   <h5>Requestor's Department:</h5>
                   <p>{requestDetails.department} department</p>
                   </div>
-                  <div className="amountRequested">
+                  <div className="requestedAmount">
                   <h5>Amount Requested:</h5>
                   <p> Kes {requestDetails.amount}</p>
                   </div>
-                  <div className="reasonForRequest">
+                  <div className="requestReason">
                   <h5>Reason for Request:</h5>
                   <p>{requestDetails.reason}</p>
                   </div>
@@ -143,11 +145,9 @@ const FinanceManagerDashboard = () => {
                   </div>
                 </div>
                 <div className="approveRejectButtons">
-                  <input type="submit" value="Deny Request" className="denyBtn" onClick={denyRequest}/>
-                  <input type="submit" value="Approve Request" className="approveBtn" onClick={approveRequest}/>
+                  <input type="submit" value="Deny Request" className="denyBtn" onClick={denyRequest} disabled={disableDenialBtn}/>
+                  <input type="submit" value="Approve Request" className="approveBtn" onClick={approveRequest} disabled={disableApprovalBtn}/>
                 </div>
-                <p className="approveNotif">{approvalNotification}</p>
-                <p className="denyNotif">{denialNotification}</p>
               </div>
             </div>
           )}

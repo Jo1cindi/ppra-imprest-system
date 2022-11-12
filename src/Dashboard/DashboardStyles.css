@@ -1003,37 +1003,37 @@ body{
   margin-left: 10px;
   margin-top: 5px;
 }
-.amountRequested{
+.requestedAmount{
   width: 90%;
   height: 10%;
   display: flex;
   margin-left: 5%;
   border-bottom: 1.5px solid rgba(0,0,0, 0.1);
 }
-.amountRequested h5{
+.requestedAmount h5{
   font-family:Lato, sans-serif;
   font-size: 16px;
   color: rgba(0,0,0, 0.5);
   margin-top: 5px;
 }
-.amountRequested p{
+.requestedAmount p{
   font-family: Karla , sans-serif;
   font-size: 16px;
   margin-left: 10px;
   margin-top: 5px;
 }
-.reasonForRequest{
+.requestReason{
   width: 90%;
   height: 50%;
   margin-left: 5%;
   border-bottom: 1.5px solid rgba(0,0,0, 0.1);
 }
-.reasonForRequest h5{
+.requestReason h5{
   font-family:Lato, sans-serif;
   font-size: 16px;
   color: rgba(0,0,0, 0.5);
 }
-.reasonForRequest p{
+.requestReason p{
   font-family: Karla , sans-serif;
   font-size: 14px;
   margin-top: 5px;
@@ -1044,15 +1044,15 @@ body{
   display: flex;
   margin-left: 5%;
   color: rgba(0,0,0, 0.5);
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
-.dateOfRequest h5{
+.dateRequestSent h5{
   font-family:Lato, sans-serif;
   font-size: 14px;
   color: rgba(0,0,0, 0.5);
   margin-top: 5px;
 }
-.dateOfRequest p{
+.dateRequestSent p{
   font-family: Karla , sans-serif;
   font-size: 14px;
   margin-left: 10px;
@@ -1077,6 +1077,9 @@ body{
   border: none;
   border-radius: 10px;
 }
+.denyBtn:disabled{
+  background-color: #D8B6A4;
+}
 .approveBtn{
   width: 120px;
   height: 40px;
@@ -1088,15 +1091,8 @@ body{
   border: none;
   border-radius: 10px;
 }
-.approveNotif{
-  margin-left: 60%;
-  margin-right: 10%;
-  color: green;
-}
-.denyNotif{
-  margin-left: 60%;
-  margin-right: 10%;
-  color: red;
+.approveBtn:disabled{
+  background-color: #808080
 }
 
 /* Finance Manager History */
@@ -1252,6 +1248,9 @@ body{
   cursor: pointer;
   font-family: Karla, sans-serif;
   font-size: 14px;
+}
+.approvedRequestsCard input:disabled{
+  background-color: #D8B6A4;
 }
 .allocationSuccess{
   margin-left: 50%;
@@ -1447,6 +1446,30 @@ body{
   padding-left: 10px;
   font-family: Karla, sans-serif;
 }
+.monthlyDetails{
+  font-family: Karla, sans-serif;
+  height: 10%;
+}
+.monthlyDetails p{
+  padding-top: 6px;
+  font-weight: bold;
+}
+.monthlyReports{
+  font-family: Karla, sans-serif;
+  height: 9%;
+}
+.totals{
+  font-family: Karla, sans-serif;
+  height: 15%;
+}
+.totals p{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.dateReport{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 .detailsColumn{
   width: 20%;
   background-color: #D8B6A4;
@@ -1455,6 +1478,10 @@ body{
   padding-left: 10px;
   font-family: Karla, sans-serif;
 }
+.reasonReports{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 .totalColumn{
   width: 20%;
   background-color: #EEEBDD
@@ -1462,6 +1489,10 @@ body{
 .totalColumn p{
   padding-left: 10px;
   font-family: Karla, sans-serif;
+}
+.amountReports{
+  padding-top: 10px;
+  padding-bottom: 8px;
 }
 .spacing{
   height: 18px;

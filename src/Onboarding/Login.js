@@ -157,9 +157,6 @@ const Login = () => {
         .then((response) => {
           navigate("/AccountantDashboard");
           console.log(response);
-          localStorage.setItem("firstName", response.data.firstName);
-          localStorage.setItem("lastName", response.data.lastName);
-          localStorage.setItem("email", response.data.email);
           localStorage.setItem("accountantId", response.data.accountantId);
         })
         .catch((error) => {
@@ -180,9 +177,6 @@ const Login = () => {
       })
         .then((response) => {
           navigate("/FinanceManagerDashboard");
-          localStorage.setItem("firstName", response.data.firstName);
-          localStorage.setItem("lastName", response.data.lastName);
-          localStorage.setItem("email", response.data.email);
           console.log(response);
         })
         .catch((error) => {

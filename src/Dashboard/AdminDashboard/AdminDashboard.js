@@ -8,7 +8,6 @@ import {
   IconButton
 } from "@mui/material";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AdminDashboard = () => {
@@ -138,9 +137,9 @@ const AdminDashboard = () => {
     passwordError = "";
   }
 
-  //Navigation to login page after registration
-  const navigate = useNavigate();
+  //Success or Error in Registration
   const [registrationError, setRegistrationError] = useState("");
+  const [registrationSuccess, setRegistrationSuccess] = useState("");
 
   const register = (e) => {
     e.preventDefault();
@@ -156,8 +155,8 @@ const AdminDashboard = () => {
         headers: { "Content-Type": "application/json" },
       })
         .then((response) => {
-          navigate("/Login");
           console.log(response);
+          setRegistrationSuccess("User Registered Successfully")
         })
         .catch((error) => {
           if (error.response.status === 409) {
@@ -176,8 +175,8 @@ const AdminDashboard = () => {
         headers: { "Content-Type": "application/json" },
       })
         .then((response) => {
-          navigate("/Login");
           console.log(response);
+          setRegistrationSuccess("User Registered Successfully")
         })
         .catch((error) => {
           if (error.response.status === 409) {
@@ -384,6 +383,7 @@ const AdminDashboard = () => {
             onClick={register}
           />
           <label className="regError">{registrationError}</label>
+          <label className="regSuccess">{registrationSuccess}</label>
         </form>
       </div>  
        </div>
