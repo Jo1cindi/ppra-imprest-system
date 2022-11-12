@@ -187,19 +187,21 @@ body{
 }
 .registrationForm{
   width: 45%;
-  height: 130vh;
+  height: 120vh;
   margin-top: 1%;
   margin-left: 10rem;
   margin-bottom: 2rem;
   /* background-color: #EEEBDD; */
   border-radius: 30px;
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
 .registrationForm h3{
   font-family: Lato, sans-serif;
   font-size: 20px;
   color: #000000;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 

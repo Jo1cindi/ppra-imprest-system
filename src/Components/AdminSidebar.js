@@ -68,7 +68,7 @@ const welcome = "Welcome to Admin's Dashboard"
 
 
      <div className="accmenuItem">
-      <NavLink to="/LandingPage" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
+      <NavLink to="/Admin-Login" className={({isActive})=> isActive ? "activeNavlink" : "inactiveNavlink"}>
       <IoLogOut className='menuIcon'/>
        <div className='linkDesc'>Logout</div>
       </NavLink>

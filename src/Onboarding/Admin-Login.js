@@ -39,9 +39,10 @@ const AdminLogin = () => {
   let passwordError = "";
   if(passwordRegex.test(loginData.password) === true){
     passwordError = "strong password"
-  }else if(passwordRegex.test(loginData.password) === false){
+  }else{
     passwordError = "weak password";
-  }else if(!loginData.password){
+  }
+  if(!loginData.password){
     passwordError = ""
   }
 

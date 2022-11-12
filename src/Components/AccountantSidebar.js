@@ -1,15 +1,30 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import "../Dashboard/DashboardStyles.css";
 import LogoLight from './LogoLight';
 import {RiFundsFill} from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
 import { IoLogOut } from 'react-icons/io5'
 import { FaBook} from 'react-icons/fa'
+import axios from 'axios';
 
 const AccountantSidebar = () => {
-    const userFirstName = localStorage.getItem("firstName")
-    const userLastName = localStorage.getItem("lastName")
-    const name = userFirstName + ' ' +userLastName
+     // User Name
+const [userName, setUserName] = useState({})
+const name = userName.firstName + ' ' + userName.lastName
+
+useEffect(()=>{
+  axios({
+    method: "post",
+    url: "https://ppra-api.herokuapp.com/api/accountant-data",
+    data: {email: localStorage.getItem("email")},
+    headers: { "Content-Type": "application/json" }
+  }).then((response)=>{
+    console.log(response)
+    setUserName(response.data)
+  }).catch((error)=>{
+    console.log(error)
+  })
+}, [])
     
     const welcome = "Welcome to Accountant's View"
   return (

@@ -1,19 +1,34 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "../Dashboard/DashboardStyles.css";
 import LogoLight from './LogoLight';
 import {MdRequestPage} from 'react-icons/md';
 import {AiFillEye} from 'react-icons/ai';
 import {IoNotificationsSharp, IoReceiptSharp, IoLogOut} from 'react-icons/io5'
 import { NavLink } from 'react-router-dom';
-
+import axios from 'axios';
 
 
 
 const EmployeeSidebar = () => {
   // User Name
-  const userFirstName = localStorage.getItem("firstName")
-  const userLastName = localStorage.getItem("lastName")
-  const name = userFirstName + ' ' +userLastName
+const [userName, setUserName] = useState({})
+const name = userName.firstName + ' ' + userName.lastName
+
+
+
+  useEffect(()=>{
+    axios({
+      method: "post",
+      url: "https://ppra-api.herokuapp.com/api/employee-data",
+      data: {email: localStorage.getItem("email")},
+      headers: { "Content-Type": "application/json" }
+    }).then((response)=>{
+      console.log(response)
+      setUserName(response.data)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }, [])
 
  //Getting time to display greeting at the appropriate time
  let date = new Date();

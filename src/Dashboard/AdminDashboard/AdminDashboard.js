@@ -113,10 +113,13 @@ const AdminDashboard = () => {
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
   let passwordRegexError = ""
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/
-  if(passwordRegex.test(accountant.password) === true || !accountant.password || passwordRegex.test(financeManager.password) === true || !financeManager.password){
+  if(passwordRegex.test(accountant.password) === true || passwordRegex.test(financeManager.password) === true){
     passwordRegexError = "strong password"
   }else{
     passwordRegexError = "weak password"
+  }
+  if(!accountant.password || !financeManager.password){
+    passwordRegexError= ""
   }
 
   //Error if passwords do not match
