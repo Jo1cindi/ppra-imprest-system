@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const Navigation = () => {
@@ -19,24 +19,9 @@ const Navigation = () => {
       <Logo/>
      </div>
     
-     <div className='Nav-Links'>
-     <div className='aboutLinks'>
-      <ul>
-        <li>
-          <Link path to="" className='navlink'>About us</Link>
-        </li>
-        <li>
-          <Link path to="" className='navlink'>Contact</Link>
-        </li>
-        <li>
-          <Link path to="" className='navlink'>Support</Link>
-        </li>
-      </ul>
-     </div>
      <div className='NavBtns'>
      <input type= "submit" value="Login" className='loginBtn' onClick={Login}/>
      <input type="submit" value="Register" onClick={Register} className="registerBtn"/>
-     </div>
      </div>
     </div>
   )

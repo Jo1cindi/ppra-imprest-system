@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../DashboardStyles.css";
 import EmployeeSidebar from "../../Components/EmployeeSidebar";
 import Lottie from "react-lottie-player";
@@ -64,6 +64,23 @@ const EmployeeDashboard = () => {
     });
   };
 
+  //Getting the balance from the database
+  const [balance, setBalance] = useState("")
+  useEffect(()=>{
+    axios({
+      method: "post",
+      url: "https://ppra-api.herokuapp.com/api/get-balance",
+      data: {month: date.getMonth() + 1, year: date.getFullYear()},
+      headers: { "Content-Type": "application/json" }
+    }).then((response)=>{
+      console.log(response)
+      setBalance(response.data.balance)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  })
+ 
+  console.log("balance", balance)
   //Name Regex Test
   //FirstName
   let nameError = "";
@@ -85,12 +102,14 @@ const EmployeeDashboard = () => {
   //Error if amount is more or less than the minimum set amount
   const amountRegex = /^\d+$/;
   let amountError = "";
-  if (formData.amount === 0 || formData.amount > 50000) {
+  if (formData.amount < 1 || formData.amount > 50000) {
     amountError = "Enter an amount between kes 1 and kes 50,000";
   } else if (!formData.amount) {
     amountError = "";
   } else if (amountRegex.test(formData.amount) === false) {
     amountError = "Only enter numerical digits";
+  }if(balance < formData.amount){
+    amountError = "There are insufficient funds in the petty cash fund";
   }
 
   //Error if email address is incorrect
@@ -274,7 +293,7 @@ const EmployeeDashboard = () => {
                     nameRegex.test(formData.lastName) === false ||
                     regex.test(formData.email) === false ||
                     amountRegex.test(formData.amount) === false ||
-                    formData.amount === 0 || 
+                    formData.amount < 1 || 
                     formData.amount > 50000
                   }
                 />

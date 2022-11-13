@@ -38,18 +38,7 @@ body{
   display: flex;
   justify-content: space-between;
 }
-.aboutLinks{
-  width: 350px;
-  margin-top: 1rem;
-}
-.aboutLinks ul{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.aboutLinks ul li{
-  list-style: none;
-}
+
 .navlink{
   text-decoration: none;
   color: #630000;
@@ -62,6 +51,7 @@ body{
   width: 250px;
   font-size: 16px;
   margin-top: 0.5rem;
+  margin-right: 2rem;
 }
 .registerBtn{
   width: 100px;
