@@ -239,7 +239,8 @@ const EmployeeNotifications = () => {
                    <RiMoneyDollarCircleFill className="approvedIcon"/>
                   </div>
                   <p className="notifDetails">
-                   You have received <strong>Kes {notification.amount_requested}</strong> from the accountant for a request you sent on {notification.request_date} 
+                  Kes <strong>{notification.amount_requested} </strong> for a request you sent on {notification.request_date} has been sent to your Mpesa number.<br/>
+                  Transaction ID <strong>QKC8TF{notification.request_id + 5}</strong> 
                   </p>
                 </div>
               ))
@@ -251,7 +252,8 @@ const EmployeeNotifications = () => {
                   <RiMoneyDollarCircleFill className="approvedIcon"/>
                   </div>
                   <div className= "notifDetails">
-                  You have received <strong>Kes {viewedNotification.amount_requested}</strong> from the accountant for a request you sent on {viewedNotification.request_date}
+                  Kes <strong>{viewedNotification.amount_requested} </strong> for a request you sent on {viewedNotification.request_date} has been sent to your Mpesa number.<br/>
+                  Transaction ID <strong>QKC8TF{viewedNotification.request_id + 5}</strong>
                   </div>
                 </div>
               ))
